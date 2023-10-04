@@ -57,7 +57,7 @@ import {
   SelectedNetworkController,
   createSelectedNetworkMiddleware,
 } from '@metamask/selected-network-controller';
-import { LoggingController } from '@metamask/logging-controller';
+import { LoggingController, LogType } from '@metamask/logging-controller';
 
 ///: BEGIN:ONLY_INCLUDE_IN(snaps)
 import { encrypt, decrypt } from '@metamask/browser-passworder';
@@ -156,6 +156,7 @@ import {
   MetaMetricsEventCategory,
   MetaMetricsEventName,
 } from '../../shared/constants/metametrics';
+import { LOG_EVENT } from '../../shared/constants/logs';
 
 import {
   getTokenIdParam,
@@ -171,6 +172,7 @@ import { ACTION_QUEUE_METRICS_E2E_TEST } from '../../shared/constants/test-flags
 
 ///: BEGIN:ONLY_INCLUDE_IN(petnames)
 import { SnapsNameProvider } from './lib/SnapsNameProvider';
+import { AddressBookPetnamesBridge } from './lib/AddressBookPetnamesBridge';
 ///: END:ONLY_INCLUDE_IN
 
 ///: BEGIN:ONLY_INCLUDE_IN(blockaid)
@@ -286,6 +288,13 @@ export default class MetamaskController extends EventEmitter {
 
     this.controllerMessenger = new ControllerMessenger();
 
+    this.loggingController = new LoggingController({
+      messenger: this.controllerMessenger.getRestricted({
+        name: 'LoggingController',
+      }),
+      state: initState.LoggingController,
+    });
+
     // instance of a class that wraps the extension's storage local API.
     this.localStoreApiWrapper = opts.localStore;
 
@@ -306,8 +315,18 @@ export default class MetamaskController extends EventEmitter {
     this.createVaultMutex = new Mutex();
 
     this.extension.runtime.onInstalled.addListener((details) => {
-      if (details.reason === 'update' && version === '8.1.0') {
-        this.platform.openExtensionInBrowser();
+      if (details.reason === 'update') {
+        if (version === '8.1.0') {
+          this.platform.openExtensionInBrowser();
+        }
+        this.loggingController.add({
+          type: LogType.GenericLog,
+          data: {
+            event: LOG_EVENT.VERSION_UPDATE,
+            previousVersion: details.previousVersion,
+            version,
+          },
+        });
       }
     });
 
@@ -349,13 +368,6 @@ export default class MetamaskController extends EventEmitter {
         ApprovalType.EthGetEncryptionPublicKey,
         ApprovalType.EthDecrypt,
       ],
-    });
-
-    this.loggingController = new LoggingController({
-      messenger: this.controllerMessenger.getRestricted({
-        name: 'LoggingController',
-      }),
-      state: initState.LoggingController,
     });
 
     ///: BEGIN:ONLY_INCLUDE_IN(build-mmi)
@@ -1583,6 +1595,15 @@ export default class MetamaskController extends EventEmitter {
       ],
       state: initState.NameController,
     });
+
+    new AddressBookPetnamesBridge({
+      addressBookController: this.addressBookController,
+      nameController: this.nameController,
+      messenger: this.controllerMessenger.getRestricted({
+        name: 'AddressBookPetnamesBridge',
+        allowedEvents: ['NameController:stateChange'],
+      }),
+    }).init();
     ///: END:ONLY_INCLUDE_IN
 
     this.txController.on('newSwapApproval', (txMeta) => {
