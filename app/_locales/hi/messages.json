@@ -2594,14 +2594,6 @@
   "notifications": {
     "message": "सूचनाएं"
   },
-  "notifications1Description": {
-    "message": "MetaMask Mobile यूज़र अब अपने मोबाइल वॉलेट के अंदर टोकन स्वैप कर सकते हैं। मोबाइल ऐप प्राप्त करने के लिए QR कोड को स्कैन करें और स्वैप करना शुरू करें।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
-  },
-  "notifications1Title": {
-    "message": "मोबाइल पर स्वैपिंग यहां है!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
-  },
   "notifications20ActionText": {
     "message": "और अधिक जानें",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a ledger page to resolve the U2F connection issue."
@@ -2613,15 +2605,6 @@
   "notifications20Title": {
     "message": "Ledger और फायरफॉक्स यूज़र कनेक्शन संबंधी समस्याओं का सामना कर रहे हैं",
     "description": "Title for a notification in the 'See What's New' popup. Tells users that latest firefox users using U2F may experience connection issues."
-  },
-  "notifications22ActionText": {
-    "message": "समझ गए"
-  },
-  "notifications22Description": {
-    "message": "💡 उन्हें ढूंढने के लिए बस ग्लोबल मेनू या अकाउंट मेनू पर क्लिक करें!"
-  },
-  "notifications22Title": {
-    "message": "क्या आप अपने अकाउंट की जानकारी या ब्लॉक एक्सप्लोरर URL खोज रहे हैं?"
   },
   "notifications23ActionText": {
     "message": "सुरक्षा अलर्ट इनेबल करें"
@@ -2644,62 +2627,6 @@
   "notifications24Title": {
     "message": "नेटवर्क द्वारा एडवांस्ड गैस फीस"
   },
-  "notifications3ActionText": {
-    "message": "और पढ़ें",
-    "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a page about security on the metamask support website."
-  },
-  "notifications3Description": {
-    "message": "MetaMask सुरक्षा की सर्वोत्तम प्रथाओं पर अद्यतित रहें और आधिकारिक MetaMask सपोर्ट से लेटेस्ट सुरक्षा युक्तियां प्राप्त करें।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the information they can get on security from the linked support page."
-  },
-  "notifications3Title": {
-    "message": "सुरक्षित रहें",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to consider security."
-  },
-  "notifications4ActionText": {
-    "message": "स्वैप करना शुरू करें",
-    "description": "The 'call to action' on the button, or link, of the 'Swap on Binance Smart Chain!' notification. Upon clicking, users will be taken to a page where then can swap tokens on Binance Smart Chain."
-  },
-  "notifications4Description": {
-    "message": "अपने वॉलेट के अंदर ही टोकन स्वैप पर सर्वोत्तम मूल्य प्राप्त करें। MetaMask अब आपको Binance Smart Chain पर कई विकेन्द्रीकृत एक्सचेंज एग्रीगेटर और पेशेवर बाजार निर्माताओं से जोड़ता है।",
-    "description": "Description of a notification in the 'See What's New' popup."
-  },
-  "notifications4Title": {
-    "message": "Binance Smart Chain पर स्वैप करें",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to do swaps on Binance Smart Chain."
-  },
-  "notifications5Description": {
-    "message": "आपके \"सीड फ्रेज\" को अब आपका \"सीक्रेट रिकवरी फ्रेज\" कहा जाता है।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the seed phrase wording update."
-  },
-  "notifications6DescriptionOne": {
-    "message": "Chrome के वर्शन 91 से, वह API जो हमारे Ledger सपोर्ट (U2F) को इनेबल करती है वह अब hardware wallet को सपोर्ट नहीं करती। MetaMask ने एक नया Ledger Live सपोर्ट लागू किया है, जिसकी मदद से आप Ledger Live डेस्कटॉप ऐप के माध्यम से अपने Ledger डिवाइस से कनेक्ट करना जारी रख सकते हैं।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionThree": {
-    "message": "MetaMask में अपने Ledger अकाउंट पर काम करते समय, एक नया टैब खुल जाएगा और आपको Ledger Live ऐप खोलने के लिए कहा जाएगा।  ऐप खुलने के बाद, आपको अपने MetaMask अकाउंट के लिए एक WebSocket कनेक्शन को अनुमति देने के लिए कहा जाएगा।  बस इतना ही!",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionTwo": {
-    "message": "आप सेटिंग > एडवांस्ड > Ledger Live का इस्तेमाल करें पर क्लिक करके Ledger Live सहायता को इनेबल कर सकते हैं।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6Title": {
-    "message": "Chrome यूज़र्स के लिए Ledger सहायता अपडेट",
-    "description": "Title for a notification in the 'See What's New' popup. Lets users know about the Ledger support update"
-  },
-  "notifications7DescriptionOne": {
-    "message": "MetaMask v10.1.0 ने Ledger डिवाइस का इस्तेमाल करते समय EIP-1559 ट्रांसेक्शन के लिए नया सपोर्ट शामिल किया",
-    "description": "Description of a notification in the 'See What's New' popup. Describes changes for ledger and EIP1559 in v10.1.0"
-  },
-  "notifications7DescriptionTwo": {
-    "message": " Ethereum Mainnet पर ट्रांसेक्शन पूरा करने के लिए, पक्का करें कि आपके Ledger डिवाइस में लेटेस्ट फर्मवेयर है।",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the need to update ledger firmware."
-  },
-  "notifications7Title": {
-    "message": "Ledger फर्मवेयर अपडेट",
-    "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users of the need to update firmware."
-  },
   "notifications8ActionText": {
     "message": "सेटिंग्स पर जाएं > एडवांस्ड",
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
@@ -2715,15 +2642,6 @@
   "notifications8Title": {
     "message": "Ledger कनेक्शन में सुधार",
     "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users that there is an improvement in how they can connect their device."
-  },
-  "notifications9DescriptionOne": {
-    "message": "स्मार्ट कॉन्ट्रैक्ट ट्रांसेक्शन को कन्फर्म करते समय अब हम आपको 'डेटा' टैब पर अधिक जानकारी प्रदान करेंगे।"
-  },
-  "notifications9DescriptionTwo": {
-    "message": "अब आप पुष्टि करने से पहले अपने ट्रांसेक्शन की जानकारी को बेहतर तरीके से समझ सकते हैं, और अधिक आसानी से अपनी एड्रेस पुस्तिका में ट्रांसेक्शन के एड्रेस जोड़ सकते हैं, जिससे आपको सुरक्षित और सूचित निर्णय लेने में मदद मिलेगी।"
-  },
-  "notifications9Title": {
-    "message": "👓 हम ट्रांसेक्शन को पढ़ना आसान बना रहे हैं।"
   },
   "notificationsDropLedgerFirefoxDescription": {
     "message": "Firefox अब U2F का सपोर्ट नहीं करता है, इसलिए Firefox पर MetaMask के साथ Ledger काम नहीं करेगा। इसके बजाय, Google Chrome पर MetaMask इस्तेमाल करके देखें।",

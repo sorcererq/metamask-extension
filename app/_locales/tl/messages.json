@@ -2594,14 +2594,6 @@
   "notifications": {
     "message": "Mga Abiso"
   },
-  "notifications1Description": {
-    "message": "Ang mga user ng MetaMask Mobile ay maaari na ngayong mag-swap ng mga token sa loob ng kanilang mobile wallet. I-scan ang QR code para makuha ang mobile app at magsimulang mag-swap.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
-  },
-  "notifications1Title": {
-    "message": "Narito na ang pag-swap sa mobile!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
-  },
   "notifications20ActionText": {
     "message": "Matuto pa",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a ledger page to resolve the U2F connection issue."
@@ -2613,15 +2605,6 @@
   "notifications20Title": {
     "message": "Ang mga User ng Ledger at Firefox ay Nakakaranas ng Isyu sa Koneksyon",
     "description": "Title for a notification in the 'See What's New' popup. Tells users that latest firefox users using U2F may experience connection issues."
-  },
-  "notifications22ActionText": {
-    "message": "Nakuha ko"
-  },
-  "notifications22Description": {
-    "message": "💡 I-click lang ang pandaigdigang menu o account menu para mahanap ang mga iyon!"
-  },
-  "notifications22Title": {
-    "message": "Naghahanap ka ba ng mga detalye ng account o ng URL ng block explorer?"
   },
   "notifications23ActionText": {
     "message": "Pinagagana ang mga alerto sa seguridad"
@@ -2644,62 +2627,6 @@
   "notifications24Title": {
     "message": "Paunang gas fee ayon sa network"
   },
-  "notifications3ActionText": {
-    "message": "Magbasa pa",
-    "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a page about security on the metamask support website."
-  },
-  "notifications3Description": {
-    "message": "Manatiling may alam sa pinakamagagandang kasanayan sa seguridad ng MetaMask at kunin ang mga pinakabagong tip ng seguridad mula sa opisyal na suporta sa MetaMask.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the information they can get on security from the linked support page."
-  },
-  "notifications3Title": {
-    "message": "Manatiling ligtas",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to consider security."
-  },
-  "notifications4ActionText": {
-    "message": "Simulan ang pag-swap",
-    "description": "The 'call to action' on the button, or link, of the 'Swap on Binance Smart Chain!' notification. Upon clicking, users will be taken to a page where then can swap tokens on Binance Smart Chain."
-  },
-  "notifications4Description": {
-    "message": "Makuha ang pinakamagagandang presyo sa pag-swap ng token sa loob ng iyong wallet. Ikinokonekta ka na ngayon ng MetaMask sa maraming decentralized exchange aggregator at mga propesyonal na market maker sa Binance Smart Chain.",
-    "description": "Description of a notification in the 'See What's New' popup."
-  },
-  "notifications4Title": {
-    "message": "Mag-swap sa Binance Smart Chain",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to do swaps on Binance Smart Chain."
-  },
-  "notifications5Description": {
-    "message": "Ang iyong \"Pariralang Binhi\" ay tinatawag na ngayon na iyong \"Lihim na Parirala sa Pagbawi.\"",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the seed phrase wording update."
-  },
-  "notifications6DescriptionOne": {
-    "message": "Simula sa Chrome version 91, ang API na nagpapagana ng aming Ledger support (U2F) ay hindi na sumusuporta sa mga hardware wallet. Ang MetaMask ay nagpatupad ng bagong Ledger Live support na nagpapahintulot sa iyo na magpatuloy na kumonekta sa iyong Ledger device sa pamamagitan ng Ledger Live desktop app.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionThree": {
-    "message": "Kapag ginagamit ang iyong Ledger account sa MetaMask, ang bagong tab ay magbubukas at hihilingin sa iyo ng buksan ang Ledger Live app.  Kapag nabuksan na ang app, hihilingin sa iyo na payagan ang koneksyon ng WebSocket sa iyong MetaMask account.  Ganun lang!",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionTwo": {
-    "message": "Maaari mong paganahin ang Ledger Live support sa pamamagitan ng pag-click sa Mga Setting > Advanced > Gamitin ang Ledger Live.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6Title": {
-    "message": "Update ng Ledger Support para sa mga User ng Chrome",
-    "description": "Title for a notification in the 'See What's New' popup. Lets users know about the Ledger support update"
-  },
-  "notifications7DescriptionOne": {
-    "message": "Isinama ng MetaMask v10.1.0 ang bagong support para sa mga transaksyong EIP-1559 kapag gumagamit ng mga Ledger device.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes changes for ledger and EIP1559 in v10.1.0"
-  },
-  "notifications7DescriptionTwo": {
-    "message": "Para makumpleto ang mga transaksyon sa Mainnet ng Ethereum, siguruhin na ang iyong Ledger device ay may pinakabagong firmware.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the need to update ledger firmware."
-  },
-  "notifications7Title": {
-    "message": "Update ng Ledger firmware",
-    "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users of the need to update firmware."
-  },
   "notifications8ActionText": {
     "message": "Magpunta sa Mga Advanced Setting",
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
@@ -2715,15 +2642,6 @@
   "notifications8Title": {
     "message": "Pagpapabuti ng koneksyon ng ledger",
     "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users that there is an improvement in how they can connect their device."
-  },
-  "notifications9DescriptionOne": {
-    "message": "Binibigyan namin kayo ngayon ng mas maraming kaalaman sa tab na 'Data' kapag kinukumpirma ang mga transaksyon ng smart na kontrata."
-  },
-  "notifications9DescriptionTwo": {
-    "message": "Mas maiintindihan mo na ngayon ang mga detalye ng transaksyon bago kumpirmahin, at mas madaling makakapagdagdag ng mga address ng transaksyon sa iyong address book, na nakakatulong sa iyo na maging ligtas at gumawa ng matalinong mga desisyon."
-  },
-  "notifications9Title": {
-    "message": "👓 Pinadadali naming mabasa ang mga transaksyon."
   },
   "notificationsDropLedgerFirefoxDescription": {
     "message": "Hindi na sinusuportahan ng Firefox ang U2F, kaya ang Ledger ay hindi gagana sa MetaMask sa Firefox. Subukan ang MetaMask sa Google Chrome.",

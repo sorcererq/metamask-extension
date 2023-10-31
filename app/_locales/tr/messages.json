@@ -2594,14 +2594,6 @@
   "notifications": {
     "message": "Bildirimler"
   },
-  "notifications1Description": {
-    "message": "MetaMask Mobil kullanıcıları artık mobil cüzdanları içinde tokenler ile swap gerçekleştirebilir. Mobil uygulamayı alıp swap işlemi yapmaya başlamak için QR kodunu tarayın.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
-  },
-  "notifications1Title": {
-    "message": "Mobilde swap burada!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
-  },
   "notifications20ActionText": {
     "message": "Daha fazla bilgi",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a ledger page to resolve the U2F connection issue."
@@ -2613,15 +2605,6 @@
   "notifications20Title": {
     "message": "Bağlantı Sorunları Yaşayan Ledger ve Firefox Kullanıcıları",
     "description": "Title for a notification in the 'See What's New' popup. Tells users that latest firefox users using U2F may experience connection issues."
-  },
-  "notifications22ActionText": {
-    "message": "Anladım"
-  },
-  "notifications22Description": {
-    "message": "💡 Bulmak için genel menüye veya hesap menüsüne tıklayın!"
-  },
-  "notifications22Title": {
-    "message": "Hesap bilgilerinizi veya blok gezgini URL adresini mi arıyorsunuz?"
   },
   "notifications23ActionText": {
     "message": "Güvenlik uyarılarını etkinleştir"
@@ -2644,62 +2627,6 @@
   "notifications24Title": {
     "message": "Ağa göre gelişmiş gaz ücretleri"
   },
-  "notifications3ActionText": {
-    "message": "Daha fazla bilgi",
-    "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a page about security on the metamask support website."
-  },
-  "notifications3Description": {
-    "message": "MetaMask en iyi güvenlik uygulamalarında güncel kalın ve resmi MetaMask desteğinden en son güvenlik ipuçlarını alın.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the information they can get on security from the linked support page."
-  },
-  "notifications3Title": {
-    "message": "Güvende kalın",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to consider security."
-  },
-  "notifications4ActionText": {
-    "message": "Swap işlemlerine başlayın",
-    "description": "The 'call to action' on the button, or link, of the 'Swap on Binance Smart Chain!' notification. Upon clicking, users will be taken to a page where then can swap tokens on Binance Smart Chain."
-  },
-  "notifications4Description": {
-    "message": "Doğrudan cüzdanınızdan token swap'larında en iyi fiyatları alın. MetaMask artık Binance Smart Chain'deki birden fazla merkeziyetsiz borsa toplayıcısı ve profesyonel piyasa oluşturucuyu birbirine bağlıyor.",
-    "description": "Description of a notification in the 'See What's New' popup."
-  },
-  "notifications4Title": {
-    "message": "Binance Smart Chain'de Swap İşlemi Yapın",
-    "description": "Title for a notification in the 'See What's New' popup. Encourages users to do swaps on Binance Smart Chain."
-  },
-  "notifications5Description": {
-    "message": "\"Anahtar Cümleniz\" artık \"Gizli Kurtarma İfadeniz\" oldu",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the seed phrase wording update."
-  },
-  "notifications6DescriptionOne": {
-    "message": "Chrome 91 sürümünden itibaren Ledger desteğimize olanak tanıyan API (U2F) artık donanım cüzdanları desteklememektedir. MetaMask, Ledger cihazınızı Ledger Live masaüstü uygulaması üzerinden bağlamanıza olanak tanıyan yeni bir Ledger Live desteğini hayata geçirmiştir.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionThree": {
-    "message": "MetaMask'te Ledger hesabınız ile etkileşim kurarken yeni bir sekme açılacak ve sizden Ledger Live uygulamasını açmanız istenecektir. Uygulama açıldıktan sonra sizden MetaMask hesabınızla bir WebSocket bağlantısı kurulmasına izin vermeniz istenecektir. Hepsi bu!",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6DescriptionTwo": {
-    "message": "Ayarlar > Gelişmiş > Ledger Live Kullan seçeneğine tıklayarak Ledger Live desteğini etkinleştirebilirsiniz.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
-  },
-  "notifications6Title": {
-    "message": "Chrome kullanıcıları için Ledger desteği",
-    "description": "Title for a notification in the 'See What's New' popup. Lets users know about the Ledger support update"
-  },
-  "notifications7DescriptionOne": {
-    "message": "MetaMask 10.1.0 sürümü, Ledger cihazları kullanıldığında EIP-1559 işlemleri için yeni destek içerir.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes changes for ledger and EIP1559 in v10.1.0"
-  },
-  "notifications7DescriptionTwo": {
-    "message": "İşlemleri Ethereum Ana Ağında tamamlamak için Ledger cihazınızın son donanım yazılımına sahip olduğundan emin olun.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the need to update ledger firmware."
-  },
-  "notifications7Title": {
-    "message": "Ledger donanım yazılımı güncellemesi",
-    "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users of the need to update firmware."
-  },
   "notifications8ActionText": {
     "message": "Ayarlar / Gelişmiş kısmına git",
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
@@ -2715,15 +2642,6 @@
   "notifications8Title": {
     "message": "Ledger bağlantı iyileştirmesi",
     "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users that there is an improvement in how they can connect their device."
-  },
-  "notifications9DescriptionOne": {
-    "message": "Akıllı sözleşme işlemlerini onaylarken \"Veri\" sekmesinde size artık daha fazla bilgi sunuyoruz."
-  },
-  "notifications9DescriptionTwo": {
-    "message": "Daha güvenli ve bilgiye dayalı kararlar vermenize yardımcı olmak için artık onaylamadan önce işleminizin ayrıntılarını daha iyi anlayabilir ve işlem adresini adres defterinize çok daha kolay ekleyebilirsiniz."
-  },
-  "notifications9Title": {
-    "message": "👓 İşlemlerin okunmasını daha kolay hale getiriyoruz."
   },
   "notificationsDropLedgerFirefoxDescription": {
     "message": "Firefox artık U2F'yi desteklemiyor, bu yüzden Ledger Firefox'ta Metamask ile çalışmayacaktır. Onun yerine MetaMask'i Google Chrome'da deneyin.",

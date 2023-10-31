@@ -2594,14 +2594,6 @@
   "notifications": {
     "message": "Notifications"
   },
-  "notifications1Description": {
-    "message": "Les utilisateurs de MetaMask Mobile peuvent désormais échanger des jetons dans leur portefeuille mobile. Scannez le code QR pour obtenir l’application mobile et commencez à échanger.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
-  },
-  "notifications1Title": {
-    "message": "Les swaps sur mobile sont enfin possibles !",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
-  },
   "notifications20ActionText": {
     "message": "En savoir plus",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a ledger page to resolve the U2F connection issue."
@@ -2715,15 +2707,6 @@
   "notifications8Title": {
     "message": "Amélioration de la connexion Ledger",
     "description": "Title for a notification in the 'See What's New' popup. Notifies ledger users that there is an improvement in how they can connect their device."
-  },
-  "notifications9DescriptionOne": {
-    "message": "Nous vous proposons désormais plus d’informations dans l’onglet « Données » lors de la confirmation des transactions de contrats intelligents."
-  },
-  "notifications9DescriptionTwo": {
-    "message": "Vous pouvez à présent mieux cerner les détails de votre transaction avant de la confirmer, et ajouter plus aisément les adresses des transactions à votre carnet d’adresses, ce qui vous aidera à prendre des décisions sûres et éclairées."
-  },
-  "notifications9Title": {
-    "message": "👓 Nous simplifions la lisibilité des transactions."
   },
   "notificationsDropLedgerFirefoxDescription": {
     "message": "Firefox ne prend plus en charge la norme d’authentification U2F, donc Ledger ne fonctionnera pas avec MetaMask sur Firefox. Essayez plutôt d’utiliser MetaMask sur Google Chrome.",
