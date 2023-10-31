@@ -1459,14 +1459,6 @@
   "notEnoughGas": {
     "message": "Não há gás suficiente"
   },
-  "notifications1Description": {
-    "message": "Usuários da MetaMask Mobile agora podem trocar tokens dentro de sua carteira mobile. Leia o QR code para obter o aplicativo para dispositivos móveis e comece a trocar.",
-    "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
-  },
-  "notifications1Title": {
-    "message": "Você já pode fazer trocas em dispositivos móveis!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
-  },
   "notifications8ActionText": {
     "message": "Ir para Configurações Avançadas",
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
