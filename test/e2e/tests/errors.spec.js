@@ -413,6 +413,9 @@ describe('Sentry errors', function () {
           const lastMigrationLog =
             migrationLogMessages[migrationLogMessages.length - 1];
 
+          console.log('migrationLogMessages', migrationLogMessages);
+          console.log('migrationLogBreadcrumbs', migrationLogBreadcrumbs);
+
           assert.equal(migrationLogMessages.length, 8);
           assert.equal(firstMigrationLog, 'Running migration 75');
           assert.equal(lastMigrationLog, 'Running migration 82');
