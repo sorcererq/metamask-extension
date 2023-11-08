@@ -40,7 +40,16 @@ async function retry(
         return result;
       }
     } catch (error) {
-      console.error('error caught in retry():', error);
+      if (error.message === "Exited with code '1'") {
+        console.log("retry() received: Exited with code '1'");
+      } else {
+        console.error('error caught in retry():', error);
+      }
+
+      if (attempts < retries) {
+        console.log('Ready to retry() again');
+      }
+
       if (retryUntilFailure) {
         return null;
       }

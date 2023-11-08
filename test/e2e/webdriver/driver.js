@@ -575,6 +575,13 @@ class Driver {
     });
   }
 
+  /*
+   * PROBLEM: This function is not working as intended. I think the consequence is that most
+   * withFixtures() have failOnConsoleError set to false, and effectively skip this. Truly fixing this
+   * function right now would cause chaos, as console errors are very common.
+   *
+   * err.description seems to be always undefined, because the args has type and value, not description.
+   */
   async checkBrowserForConsoleErrors(failOnConsoleError) {
     const ignoredErrorMessages = [
       // Third-party Favicon 404s show up as errors
@@ -593,19 +600,37 @@ class Driver {
           (err) => err.description !== undefined,
         );
 
-        const [eventDescription] = eventDescriptions;
-        const ignore = ignoredErrorMessages.some((message) =>
-          eventDescription?.description.includes(message),
-        );
-        if (!ignore) {
-          errors.push(eventDescription?.description);
-          logBrowserError(failOnConsoleError, eventDescription?.description);
+        // eventDescriptions.length will probably always be 0 right now, because err.description
+        // seems to be always undefined. But if we don't check this, E2E tests will fail when
+        // we don't expect them to.
+        if (eventDescriptions.length !== 0) {
+          const [eventDescription] = eventDescriptions;
+          const ignore = ignoredErrorMessages.some((message) =>
+            eventDescription?.description.includes(message),
+          );
+          if (!ignore) {
+            errors.push(eventDescription?.description);
+            logBrowserError(failOnConsoleError, eventDescription?.description);
+          }
+        } else if (event.args.length !== 0) {
+          // Extract the values from the array
+          const values = event.args.map((a) => a.value);
+
+          // The values are in the "printf" form of [message, ...substitutions]
+          // If you pass the spread to console.error(), it knows how to parse
+          console.error('\n----Received an error from Chrome----');
+          console.error(...values);
         }
       }
     });
   }
 }
 
+/*
+ * PROBLEM: If this throws an Error, it can cause these Ganache errors:
+ * Error: Server is already closing or closed.
+ * Error: listen EADDRINUSE: address already in use 127.0.0.1:8545.
+ */
 function logBrowserError(failOnConsoleError, errorMessage) {
   if (failOnConsoleError) {
     throw new Error(errorMessage);
