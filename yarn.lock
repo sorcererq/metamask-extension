@@ -8984,12 +8984,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/selenium-webdriver@npm:^4.1.19":
-  version: 4.1.19
-  resolution: "@types/selenium-webdriver@npm:4.1.19"
+"@types/selenium-webdriver@npm:^4.1.20":
+  version: 4.1.20
+  resolution: "@types/selenium-webdriver@npm:4.1.20"
   dependencies:
     "@types/ws": "npm:*"
-  checksum: 95e47c7028d1f78bef3c59ea66ba5922d6bf003f8c078366b5f74e94952c94fd3636b9e08ce160f1e0882a20087ef8da0edc4a0d0c7caaeb01c05494682cf6e0
+  checksum: ecc161d772cd26d3f4f112d02d0eb5d2f062fa51951572e667a4fea817010df39e84b0ae0455cf08a166753f8d451f88b8b86641e379cf55c09fc0b91694db43
   languageName: node
   linkType: hard
 
@@ -24613,7 +24613,7 @@ __metadata:
     "@types/react-router-dom": "npm:^5.3.3"
     "@types/remote-redux-devtools": "npm:^0.5.5"
     "@types/sass": "npm:^1.43.1"
-    "@types/selenium-webdriver": "npm:^4.1.19"
+    "@types/selenium-webdriver": "npm:^4.1.20"
     "@types/sinon": "npm:^10.0.13"
     "@types/w3c-web-hid": "npm:^1.0.3"
     "@types/watchify": "npm:^3.11.1"

@@ -413,6 +413,7 @@ describe('Sentry errors', function () {
           const lastMigrationLog =
             migrationLogMessages[migrationLogMessages.length - 1];
 
+          console.log('breadcrumbs', breadcrumbs);
           console.log('migrationLogMessages', migrationLogMessages);
           console.log('migrationLogBreadcrumbs', migrationLogBreadcrumbs);
 

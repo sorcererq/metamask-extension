@@ -3,16 +3,16 @@ version: 2.1
 executors:
   node-browsers:
     docker:
-      - image: cimg/node:18.17-browsers
+      - image: cimg/node:18.18-browsers
   node-browsers-medium-plus:
     docker:
-      - image: cimg/node:18.17-browsers
+      - image: cimg/node:18.18-browsers
     resource_class: medium+
     environment:
       NODE_OPTIONS: --max_old_space_size=2048
   node-browsers-large:
     docker:
-      - image: cimg/node:18.17-browsers
+      - image: cimg/node:18.18-browsers
     resource_class: large
     environment:
       NODE_OPTIONS: --max_old_space_size=2048
@@ -116,9 +116,9 @@ workflows:
       # - prep-build-flask:
       #     requires:
       #       - prep-deps
-      # - prep-build-test:
-      #     requires:
-      #       - prep-deps
+      - prep-build-test:
+          requires:
+            - prep-deps
       - prep-build-multichain-test:
           requires:
             - prep-deps
@@ -147,9 +147,9 @@ workflows:
       # - test-lint-changelog:
       #     requires:
       #       - prep-deps
-      # - test-e2e-chrome:
-      #     requires:
-      #       - prep-build-test
+      - test-e2e-chrome:
+          requires:
+            - prep-build-test
       - test-e2e-chrome-multichain:
           requires:
             - prep-build-multichain-test
@@ -251,7 +251,7 @@ workflows:
             # - test-mozilla-lint
             # - test-mozilla-lint-desktop
             # - test-mozilla-lint-flask
-            # - test-e2e-chrome
+            - test-e2e-chrome
             - test-e2e-chrome-multichain
             # - test-e2e-firefox
             # - test-e2e-chrome-flask
@@ -812,7 +812,7 @@ jobs:
 
   test-e2e-chrome:
     executor: node-browsers-large
-    parallelism: 24
+    parallelism: 1
     steps:
       - run: *shallow-git-clone
       - attach_workspace:
@@ -830,7 +830,7 @@ jobs:
             then
               yarn test:e2e:chrome --retries 2 --debug
             fi
-          no_output_timeout: 20m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -857,7 +857,7 @@ jobs:
             then
               MULTICHAIN=1 yarn test:e2e:chrome --retries 2 --debug
             fi
-          no_output_timeout: 20m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
