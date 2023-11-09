@@ -824,6 +824,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -851,6 +854,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-multichain ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome-multichain
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -863,7 +869,6 @@ jobs:
           destination: test-artifacts
       - store_test_results:
           path: test/test-results/e2e
-
   test-e2e-chrome-mv3:
     executor: node-browsers-large
     parallelism: 24
@@ -877,6 +882,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test-mv3 ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: test:e2e:chrome
           command: |
@@ -903,6 +911,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:rpc
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -928,6 +939,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test-mmi ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: test:e2e:chrome:rpc
           command: |
@@ -956,6 +970,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-flask ./builds
       - run:
+          name: Activate Selenium Manager for Firefox
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser firefox
+      - run:
           name: test:e2e:firefox:flask
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -982,6 +999,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test-flask ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: test:e2e:chrome:flask
           command: |
@@ -1010,6 +1030,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-mmi ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:mmi
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -1037,6 +1060,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Firefox
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser firefox
+      - run:
           name: test:e2e:firefox
           command: |
             if .circleci/scripts/test-run-e2e.sh
@@ -1063,6 +1089,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: Run page load benchmark
           command: yarn benchmark:chrome --out test-artifacts/chrome/benchmark/pageload.json --retries 2
       - store_artifacts:
@@ -1086,6 +1115,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: Run page load benchmark
           command: yarn user-actions-benchmark:chrome --out test-artifacts/chrome/benchmark/user_actions.json --retries 2
       - store_artifacts:
@@ -1108,6 +1140,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test-mv3 ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: Run page load benchmark
           command: |
