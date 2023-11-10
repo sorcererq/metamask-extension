@@ -589,6 +589,8 @@ class Driver {
     const cdpConnection = await this.driver.createCDPConnection('page');
     await this.driver.onLogEvent(cdpConnection, (event) => {
       if (event.type === 'error') {
+        console.log('checkBrowserForConsoleErrors', JSON.stringify(event.args));
+
         const eventDescriptions = event.args.filter(
           (err) => err.description !== undefined,
         );
