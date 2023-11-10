@@ -198,6 +198,11 @@ async function main() {
     myTestList = testPaths;
   }
 
+  myTestList = [
+    '/home/circleci/project/test/e2e/tests/errors.spec.js',
+    '/home/circleci/project/test/e2e/tests/swaps/swaps-notifications.spec.js',
+  ];
+
   console.log('My test list:', myTestList);
 
   // spawn `run-e2e-test.js` for each test in myTestList
