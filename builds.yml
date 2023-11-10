@@ -255,8 +255,6 @@ env:
   # Determines if feature flagged Multichain UI should be used
   - MULTICHAIN: ''
 
-  - CIRCLECI: false
-
   ###
   # Meta variables
   ###

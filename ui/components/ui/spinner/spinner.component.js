@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
-  if (process.env.CIRCLECI) {
+  if (process.env.IN_TEST) {
     return null;
   }
 
