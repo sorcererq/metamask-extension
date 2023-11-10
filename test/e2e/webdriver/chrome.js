@@ -29,6 +29,13 @@ class ChromeDriver {
     } else {
       args.push('--log-level=3');
     }
+
+    // CircleCI chokes if it uses the GPU, and gets Vulkan errors
+    if (process.env.CIRCLECI) {
+      args.push('--disable-gpu');
+      args.push('--headless');
+    }
+
     const options = new chrome.Options().addArguments(args);
     options.setAcceptInsecureCerts(true);
     options.setUserPreferences({
