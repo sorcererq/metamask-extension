@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
+  if (process.env.CIRCLECI) {
+    return null;
+  }
+
   return (
     <div className={`spinner ${className}`}>
       <svg
