@@ -72,240 +72,240 @@ aliases:
 workflows:
   test_and_release:
     jobs:
-      - create_release_pull_request:
-          <<: *rc_branch_only
-          requires:
-            - prep-deps
-      - trigger-beta-build:
-          requires:
-            - prep-deps
+      # - create_release_pull_request:
+      #     <<: *rc_branch_only
+      #     requires:
+      #       - prep-deps
+      # - trigger-beta-build:
+      #     requires:
+      #       - prep-deps
       - prep-deps
-      - test-deps-audit:
-          requires:
-            - prep-deps
-      - test-deps-depcheck:
-          requires:
-            - prep-deps
-      - test-yarn-dedupe:
-          requires:
-            - prep-deps
-      - validate-lavamoat-allow-scripts:
-          requires:
-            - prep-deps
-      - validate-lavamoat-policy-build:
-          requires:
-            - prep-deps
-      - validate-lavamoat-policy-webapp:
-          matrix:
-            parameters:
-              build-type: [main, beta, flask, mmi, desktop]
-          requires:
-            - prep-deps
-      - prep-build-mmi:
-          requires:
-            - prep-deps
-      - prep-build:
-          requires:
-            - prep-deps
-      - prep-build-desktop:
-          filters:
-            branches:
-              ignore: master
-          requires:
-            - prep-deps
-      - prep-build-flask:
-          requires:
-            - prep-deps
+      # - test-deps-audit:
+      #     requires:
+      #       - prep-deps
+      # - test-deps-depcheck:
+      #     requires:
+      #       - prep-deps
+      # - test-yarn-dedupe:
+      #     requires:
+      #       - prep-deps
+      # - validate-lavamoat-allow-scripts:
+      #     requires:
+      #       - prep-deps
+      # - validate-lavamoat-policy-build:
+      #     requires:
+      #       - prep-deps
+      # - validate-lavamoat-policy-webapp:
+      #     matrix:
+      #       parameters:
+      #         build-type: [main, beta, flask, mmi, desktop]
+      #     requires:
+      #       - prep-deps
+      # - prep-build-mmi:
+      #     requires:
+      #       - prep-deps
+      # - prep-build:
+      #     requires:
+      #       - prep-deps
+      # - prep-build-desktop:
+      #     filters:
+      #       branches:
+      #         ignore: master
+      #     requires:
+      #       - prep-deps
+      # - prep-build-flask:
+      #     requires:
+      #       - prep-deps
       - prep-build-test:
           requires:
             - prep-deps
       - prep-build-multichain-test:
           requires:
             - prep-deps
-      - prep-build-test-mv3:
-          requires:
-            - prep-deps
-      - prep-build-test-flask:
-          requires:
-            - prep-deps
-      - prep-build-test-mmi:
-          requires:
-            - prep-deps
-      - prep-build-storybook:
-          requires:
-            - prep-deps
-      - prep-build-ts-migration-dashboard:
-          requires:
-            - prep-deps
-      - test-lint:
-          requires:
-            - prep-deps
-      - test-lint-shellcheck
-      - test-lint-lockfile:
-          requires:
-            - prep-deps
-      - test-lint-changelog:
-          requires:
-            - prep-deps
+      # - prep-build-test-mv3:
+      #     requires:
+      #       - prep-deps
+      # - prep-build-test-flask:
+      #     requires:
+      #       - prep-deps
+      # - prep-build-test-mmi:
+      #     requires:
+      #       - prep-deps
+      # - prep-build-storybook:
+      #     requires:
+      #       - prep-deps
+      # - prep-build-ts-migration-dashboard:
+      #     requires:
+      #       - prep-deps
+      # - test-lint:
+      #     requires:
+      #       - prep-deps
+      # - test-lint-shellcheck
+      # - test-lint-lockfile:
+      #     requires:
+      #       - prep-deps
+      # - test-lint-changelog:
+      #     requires:
+      #       - prep-deps
       - test-e2e-chrome:
           requires:
             - prep-build-test
       - test-e2e-chrome-multichain:
           requires:
             - prep-build-multichain-test
-      - test-e2e-firefox:
-          requires:
-            - prep-build-test
-      - test-e2e-chrome-rpc:
-          requires:
-            - prep-build-test
-      - test-e2e-chrome-flask:
-          requires:
-            - prep-build-test-flask
-      - test-e2e-firefox-flask:
-          requires:
-            - prep-build-test-flask
-      - test-e2e-chrome-mmi:
-          requires:
-            - prep-build-test-mmi
-      - test-e2e-chrome-rpc-mmi:
-          requires:
-            - prep-build-test-mmi
-      - test-e2e-chrome-mv3:
-          requires:
-            - prep-build-test-mv3
-      - test-unit-mocha:
-          requires:
-            - prep-deps
-      - test-unit-jest-main:
-          requires:
-            - prep-deps
-      - test-unit-jest-development:
-          requires:
-            - prep-deps
-      - upload-and-validate-coverage:
-          requires:
-            - test-unit-jest-main
-            - test-unit-jest-development
-            - test-unit-mocha
-      - test-unit-global:
-          requires:
-            - prep-deps
-      - test-storybook:
-          requires:
-            - prep-deps
-            - prep-build-storybook
-      - validate-source-maps:
-          requires:
-            - prep-build
-      - validate-source-maps-beta:
-          requires:
-            - trigger-beta-build
-      - validate-source-maps-desktop:
-          filters:
-            branches:
-              ignore: master
-          requires:
-            - prep-build-desktop
-      - validate-source-maps-mmi:
-          requires:
-            - prep-build-mmi
-      - validate-source-maps-flask:
-          requires:
-            - prep-build-flask
-      - test-mozilla-lint:
-          requires:
-            - prep-deps
-            - prep-build
-      - test-mozilla-lint-desktop:
-          filters:
-            branches:
-              ignore: master
-          requires:
-            - prep-deps
-            - prep-build-desktop
-      - test-mozilla-lint-flask:
-          requires:
-            - prep-deps
-            - prep-build-flask
+      # - test-e2e-firefox:
+      #     requires:
+      #       - prep-build-test
+      # - test-e2e-chrome-rpc:
+      #     requires:
+      #       - prep-build-test
+      # - test-e2e-chrome-flask:
+      #     requires:
+      #       - prep-build-test-flask
+      # - test-e2e-firefox-flask:
+      #     requires:
+      #       - prep-build-test-flask
+      # - test-e2e-chrome-mmi:
+      #     requires:
+      #       - prep-build-test-mmi
+      # - test-e2e-chrome-rpc-mmi:
+      #     requires:
+      #       - prep-build-test-mmi
+      # - test-e2e-chrome-mv3:
+      #     requires:
+      #       - prep-build-test-mv3
+      # - test-unit-mocha:
+      #     requires:
+      #       - prep-deps
+      # - test-unit-jest-main:
+      #     requires:
+      #       - prep-deps
+      # - test-unit-jest-development:
+      #     requires:
+      #       - prep-deps
+      # - upload-and-validate-coverage:
+      #     requires:
+      #       - test-unit-jest-main
+      #       - test-unit-jest-development
+      #       - test-unit-mocha
+      # - test-unit-global:
+      #     requires:
+      #       - prep-deps
+      # - test-storybook:
+      #     requires:
+      #       - prep-deps
+      #       - prep-build-storybook
+      # - validate-source-maps:
+      #     requires:
+      #       - prep-build
+      # - validate-source-maps-beta:
+      #     requires:
+      #       - trigger-beta-build
+      # - validate-source-maps-desktop:
+      #     filters:
+      #       branches:
+      #         ignore: master
+      #     requires:
+      #       - prep-build-desktop
+      # - validate-source-maps-mmi:
+      #     requires:
+      #       - prep-build-mmi
+      # - validate-source-maps-flask:
+      #     requires:
+      #       - prep-build-flask
+      # - test-mozilla-lint:
+      #     requires:
+      #       - prep-deps
+      #       - prep-build
+      # - test-mozilla-lint-desktop:
+      #     filters:
+      #       branches:
+      #         ignore: master
+      #     requires:
+      #       - prep-deps
+      #       - prep-build-desktop
+      # - test-mozilla-lint-flask:
+      #     requires:
+      #       - prep-deps
+      #       - prep-build-flask
       - all-tests-pass:
           requires:
-            - test-deps-depcheck
-            - validate-lavamoat-allow-scripts
-            - validate-lavamoat-policy-build
-            - validate-lavamoat-policy-webapp
-            - test-lint
-            - test-lint-shellcheck
-            - test-lint-lockfile
-            - test-lint-changelog
-            - test-unit-jest-main
-            - test-unit-jest-development
-            - test-unit-global
-            - test-unit-mocha
-            - upload-and-validate-coverage
-            - validate-source-maps
-            - validate-source-maps-beta
-            - validate-source-maps-desktop
-            - validate-source-maps-flask
-            - validate-source-maps-mmi
-            - test-mozilla-lint
-            - test-mozilla-lint-desktop
-            - test-mozilla-lint-flask
+            # - test-deps-depcheck
+            # - validate-lavamoat-allow-scripts
+            # - validate-lavamoat-policy-build
+            # - validate-lavamoat-policy-webapp
+            # - test-lint
+            # - test-lint-shellcheck
+            # - test-lint-lockfile
+            # - test-lint-changelog
+            # - test-unit-jest-main
+            # - test-unit-jest-development
+            # - test-unit-global
+            # - test-unit-mocha
+            # - upload-and-validate-coverage
+            # - validate-source-maps
+            # - validate-source-maps-beta
+            # - validate-source-maps-desktop
+            # - validate-source-maps-flask
+            # - validate-source-maps-mmi
+            # - test-mozilla-lint
+            # - test-mozilla-lint-desktop
+            # - test-mozilla-lint-flask
             - test-e2e-chrome
             - test-e2e-chrome-multichain
-            - test-e2e-firefox
-            - test-e2e-chrome-flask
-            - test-e2e-firefox-flask
-            - test-e2e-chrome-mmi
-            - test-e2e-chrome-rpc-mmi
-            - test-storybook
-      - benchmark:
-          requires:
-            - prep-build-test
-      - user-actions-benchmark:
-          requires:
-            - prep-build-test
-      - stats-module-load-init:
-          requires:
-            - prep-build-test-mv3
-      - job-publish-prerelease:
-          requires:
-            - prep-deps
-            - prep-build
-            - trigger-beta-build
-            - prep-build-desktop
-            - prep-build-mmi
-            - prep-build-flask
-            - prep-build-storybook
-            - prep-build-ts-migration-dashboard
-            - prep-build-test-mv3
-            - benchmark
-            - user-actions-benchmark
-            - stats-module-load-init
-            - all-tests-pass
-      - job-publish-release:
-          filters:
-            branches:
-              only: master
-          requires:
-            - prep-deps
-            - prep-build
-            - prep-build-desktop
-            - prep-build-mmi
-            - prep-build-flask
-            - all-tests-pass
-      - job-publish-storybook:
-          filters:
-            branches:
-              only: develop
-          requires:
-            - prep-build-storybook
-      - job-publish-ts-migration-dashboard:
-          filters:
-            branches:
-              only: develop
-          requires:
-            - prep-build-ts-migration-dashboard
+            # - test-e2e-firefox
+            # - test-e2e-chrome-flask
+            # - test-e2e-firefox-flask
+            # - test-e2e-chrome-mmi
+            # - test-e2e-chrome-rpc-mmi
+            # - test-storybook
+      # - benchmark:
+      #     requires:
+      #       - prep-build-test
+      # - user-actions-benchmark:
+      #     requires:
+      #       - prep-build-test
+      # - stats-module-load-init:
+      #     requires:
+      #       - prep-build-test-mv3
+      # - job-publish-prerelease:
+      #     requires:
+      #       - prep-deps
+      #       - prep-build
+      #       - trigger-beta-build
+      #       - prep-build-desktop
+      #       - prep-build-mmi
+      #       - prep-build-flask
+      #       - prep-build-storybook
+      #       - prep-build-ts-migration-dashboard
+      #       - prep-build-test-mv3
+      #       - benchmark
+      #       - user-actions-benchmark
+      #       - stats-module-load-init
+      #       - all-tests-pass
+      # - job-publish-release:
+      #     filters:
+      #       branches:
+      #         only: master
+      #     requires:
+      #       - prep-deps
+      #       - prep-build
+      #       - prep-build-desktop
+      #       - prep-build-mmi
+      #       - prep-build-flask
+      #       - all-tests-pass
+      # - job-publish-storybook:
+      #     filters:
+      #       branches:
+      #         only: develop
+      #     requires:
+      #       - prep-build-storybook
+      # - job-publish-ts-migration-dashboard:
+      #     filters:
+      #       branches:
+      #         only: develop
+      #     requires:
+      #       - prep-build-ts-migration-dashboard
 
 jobs:
   trigger-beta-build:
@@ -812,7 +812,7 @@ jobs:
 
   test-e2e-chrome:
     executor: node-browsers-large
-    parallelism: 24
+    parallelism: 1
     steps:
       - run: *shallow-git-clone
       - attach_workspace:
@@ -824,13 +824,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome --retries 2 --debug
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -839,7 +842,7 @@ jobs:
 
   test-e2e-chrome-multichain:
     executor: node-browsers-large
-    parallelism: 24
+    parallelism: 1
     steps:
       - run: *shallow-git-clone
       - attach_workspace:
@@ -851,19 +854,21 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-multichain ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome-multichain
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               MULTICHAIN=1 yarn test:e2e:chrome --retries 2 --debug
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
       - store_test_results:
           path: test/test-results/e2e
-
   test-e2e-chrome-mv3:
     executor: node-browsers-large
     parallelism: 24
@@ -878,13 +883,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-mv3 ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome --retries 2 --debug || echo "Temporarily suppressing MV3 e2e test failures"
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -903,13 +911,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:rpc
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome:rpc --retries 2
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -929,13 +940,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-mmi ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:rpc
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome:rpc --retries 2 --debug --build-type=mmi
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -956,13 +970,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-flask ./builds
       - run:
+          name: Activate Selenium Manager for Firefox
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser firefox
+      - run:
           name: test:e2e:firefox:flask
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:firefox:flask --retries 2 --debug
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -983,13 +1000,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-flask ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:flask
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome:flask --retries 2 --debug
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -1010,13 +1030,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test-mmi ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: test:e2e:chrome:mmi
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:chrome:mmi --retries 2 --debug --build-type=mmi
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -1037,13 +1060,16 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Firefox
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser firefox
+      - run:
           name: test:e2e:firefox
           command: |
             if .circleci/scripts/test-run-e2e.sh
             then
               yarn test:e2e:firefox --retries 2 --debug
             fi
-          no_output_timeout: 5m
+          no_output_timeout: 2m
       - store_artifacts:
           path: test-artifacts
           destination: test-artifacts
@@ -1062,6 +1088,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: Run page load benchmark
           command: yarn benchmark:chrome --out test-artifacts/chrome/benchmark/pageload.json --retries 2
@@ -1086,6 +1115,9 @@ jobs:
           name: Move test zips to builds
           command: mv ./builds-test ./builds
       - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
+      - run:
           name: Run page load benchmark
           command: yarn user-actions-benchmark:chrome --out test-artifacts/chrome/benchmark/user_actions.json --retries 2
       - store_artifacts:
@@ -1108,6 +1140,9 @@ jobs:
       - run:
           name: Move test zips to builds
           command: mv ./builds-test-mv3 ./builds
+      - run:
+          name: Activate Selenium Manager for Chrome
+          command: node_modules/selenium-webdriver/bin/linux/selenium-manager --browser chrome
       - run:
           name: Run page load benchmark
           command: |

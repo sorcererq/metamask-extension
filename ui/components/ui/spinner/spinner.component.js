@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
+  console.error('env', process.env);
+
   if (process.env.IN_TEST) {
     return null;
   }
