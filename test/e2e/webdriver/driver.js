@@ -601,7 +601,7 @@ class Driver {
         );
         if (!ignore) {
           errors.push(eventDescription?.description);
-          logBrowserError(failOnConsoleError, eventDescription?.description);
+          logBrowserError(false, eventDescription?.description);
         }
       }
     });

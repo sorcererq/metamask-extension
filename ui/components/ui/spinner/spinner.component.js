@@ -1,8 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { processHeader } from '../../../pages/confirmation/util';
 
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
-  console.error('env', process.env);
+  console.error('env_string_CIRCLECI', JSON.stringify(process.env.CIRCLECI));
+
+  console.error('env_keys', Object.keys(process.env.CIRCLECI));
+
+  for (t in process.env) {
+    console.log(t, process.env[t]);
+  }
+
+  for (t of Object.keys(process.env)) {
+    console.log(t, process.env[t]);
+  }
 
   if (process.env.IN_TEST) {
     return null;
