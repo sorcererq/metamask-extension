@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { processHeader } from '../../../pages/confirmation/util';
 
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
-  console.error('env_string_CIRCLECI', JSON.stringify(process.env.CIRCLECI));
-
   // The animations here force CircleCI to use the GPU,
   // which makes it choke on Vulkan errors
   if (process.env.CIRCLECI) {
     return null;
   }
+
+  console.error('env_string_CIRCLECI', process.env.CIRCLECI);
 
   return (
     <div className={`spinner ${className}`}>

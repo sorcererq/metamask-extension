@@ -254,7 +254,7 @@ env:
   - BLOCKAID_PUBLIC_KEY
   # Determines if feature flagged Multichain UI should be used
   - MULTICHAIN: ''
-  # Used to disable CSS animations
+  # This is true if running on CircleCI, and is used to disable CSS animations
   - CIRCLECI: false
 
   ###
