@@ -5,16 +5,8 @@ import { processHeader } from '../../../pages/confirmation/util';
 const Spinner = ({ className = '', color = 'var(--color-text-default)' }) => {
   console.error('env_string_CIRCLECI', JSON.stringify(process.env.CIRCLECI));
 
-  // console.error('env_keys', Object.keys(process.env.CIRCLECI));
-
-  // for (t in process.env) {
-  //   console.log(t, process.env[t]);
-  // }
-
-  // for (t of Object.keys(process.env)) {
-  //   console.log(t, process.env[t]);
-  // }
-
+  // The animations here force CircleCI to use the GPU,
+  // which makes it choke on Vulkan errors
   if (process.env.CIRCLECI) {
     return null;
   }
