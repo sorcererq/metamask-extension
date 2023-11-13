@@ -113,9 +113,6 @@ import { EXTENSION_ERROR_PAGE_TYPES } from '../../../shared/constants/desktop';
 import {
   ENVIRONMENT_TYPE_NOTIFICATION,
   ENVIRONMENT_TYPE_POPUP,
-  ///: BEGIN:ONLY_INCLUDE_IN(keyring-snaps)
-  SNAP_MANAGE_ACCOUNTS_CONFIRMATION_TYPES,
-  ///: END:ONLY_INCLUDE_IN
 } from '../../../shared/constants/app';
 import { NETWORK_TYPES } from '../../../shared/constants/network';
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
@@ -182,7 +179,6 @@ export default class Routes extends Component {
     ///: BEGIN:ONLY_INCLUDE_IN(keyring-snaps)
     isShowKeyringSnapRemovalResultModal: PropTypes.bool.isRequired,
     hideShowKeyringSnapRemovalResultModal: PropTypes.func.isRequired,
-    pendingConfirmations: PropTypes.object.isRequired,
     ///: END:ONLY_INCLUDE_IN
   };
 
@@ -597,7 +593,6 @@ export default class Routes extends Component {
       ///: BEGIN:ONLY_INCLUDE_IN(keyring-snaps)
       isShowKeyringSnapRemovalResultModal,
       hideShowKeyringSnapRemovalResultModal,
-      pendingConfirmations,
       ///: END:ONLY_INCLUDE_IN
     } = this.props;
 
@@ -621,15 +616,6 @@ export default class Routes extends Component {
       windowType !== ENVIRONMENT_TYPE_NOTIFICATION &&
       isUnlocked &&
       !shouldShowSeedPhraseReminder;
-
-    let isLoadingShown = isLoading;
-
-    ///: BEGIN:ONLY_INCLUDE_IN(keyring-snaps)
-    isLoadingShown =
-      isLoading &&
-      pendingConfirmations.type !==
-        SNAP_MANAGE_ACCOUNTS_CONFIRMATION_TYPES.showSnapAccountRedirect;
-    ///: END:ONLY_INCLUDE_IN
 
     return (
       <div
@@ -683,7 +669,7 @@ export default class Routes extends Component {
           ///: END:ONLY_INCLUDE_IN
         }
         <Box className="main-container-wrapper">
-          {isLoadingShown ? <Loading loadingMessage={loadMessage} /> : null}
+          {isLoading ? <Loading loadingMessage={loadMessage} /> : null}
           {!isLoading && isNetworkLoading ? <LoadingNetwork /> : null}
           {this.renderRoutes()}
         </Box>
