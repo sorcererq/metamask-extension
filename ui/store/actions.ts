@@ -2591,7 +2591,7 @@ export function exportAccount(
     return new Promise<string>((resolve, reject) => {
       callBackgroundMethod('verifyPassword', [password], function (err) {
         if (err) {
-          log.error('Error in verifying password.');
+          log.warning('Error in verifying password.');
           dispatch(hideLoadingIndication());
           dispatch(displayWarning('Incorrect Password.'));
           reject(err);
