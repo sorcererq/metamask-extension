@@ -602,7 +602,7 @@ class Driver {
           );
           if (!ignore) {
             errors.push(eventDescription?.description);
-            logBrowserError(failOnConsoleError, eventDescription?.description);
+            logBrowserError(true, eventDescription?.description);
           }
         } else if (event.args.length !== 0) {
           // Extract the values from the array
@@ -610,7 +610,7 @@ class Driver {
 
           // The values are in the "printf" form of [message, ...substitutions]
           // so use sprintf to parse
-          logBrowserError(failOnConsoleError, sprintf(...values));
+          logBrowserError(true, sprintf(...values));
         }
       }
     });
