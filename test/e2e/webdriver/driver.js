@@ -11,7 +11,14 @@ const {
 } = require('selenium-webdriver');
 const cssToXPath = require('css-to-xpath');
 const { sprintf } = require('sprintf-js');
-const { retry } = require('../../../development/lib/retry');
+// const { retry } = require('../../../development/lib/retry');
+const {
+  getWindowMonitorHandles,
+  startWindowMonitor,
+  stopWindowMonitor,
+  switchToWindowWithTitle,
+  getWindowHandlesRaw,
+} = require('../window-monitor');
 
 const PAGES = {
   BACKGROUND: 'background',
@@ -95,6 +102,8 @@ class Driver {
       COMMAND: '\uE03D',
       MODIFIER: process.platform === 'darwin' ? Key.COMMAND : Key.CONTROL,
     };
+
+    startWindowMonitor(driver);
   }
 
   async executeAsyncScript(script, ...args) {
@@ -212,6 +221,7 @@ class Driver {
   }
 
   async quit() {
+    stopWindowMonitor();
     await this.driver.quit();
   }
 
@@ -429,15 +439,14 @@ class Driver {
   }
 
   async getAllWindowHandles() {
-    return await this.driver.getAllWindowHandles();
+    return await getWindowMonitorHandles();
   }
 
   async waitUntilXWindowHandles(x, delayStep = 1000, timeout = this.timeout) {
     let timeElapsed = 0;
     let windowHandles = [];
     while (timeElapsed <= timeout) {
-      windowHandles = await this.driver.getAllWindowHandles();
-
+      windowHandles = await getWindowHandlesRaw();
       if (windowHandles.length === x) {
         return windowHandles;
       }
@@ -449,39 +458,11 @@ class Driver {
 
   async switchToWindowWithTitle(
     title,
-    initialWindowHandles,
-    delayStep = 1000,
-    timeout = this.timeout,
-    { retries = 8, retryDelay = 2500 } = {},
+    // initialWindowHandles,
+    // delayStep = 1000,
+    // timeout = this.timeout,
   ) {
-    let windowHandles =
-      initialWindowHandles || (await this.driver.getAllWindowHandles());
-    let timeElapsed = 0;
-
-    while (timeElapsed <= timeout) {
-      for (const handle of windowHandles) {
-        const handleTitle = await retry(
-          {
-            retries,
-            delay: retryDelay,
-          },
-          async () => {
-            await this.driver.switchTo().window(handle);
-            return await this.driver.getTitle();
-          },
-        );
-
-        if (handleTitle === title) {
-          return handle;
-        }
-      }
-      await this.delay(delayStep);
-      timeElapsed += delayStep;
-      // refresh the window handles
-      windowHandles = await this.driver.getAllWindowHandles();
-    }
-
-    throw new Error(`No window with title: ${title}`);
+    await switchToWindowWithTitle(title); //, delayStep, timeout);
   }
 
   async closeWindow() {
@@ -507,7 +488,7 @@ class Driver {
    */
   async closeAllWindowHandlesExcept(exceptions, windowHandles) {
     // eslint-disable-next-line no-param-reassign
-    windowHandles = windowHandles || (await this.driver.getAllWindowHandles());
+    windowHandles = windowHandles || (await getWindowMonitorHandles());
 
     for (const handle of windowHandles) {
       if (!exceptions.includes(handle)) {
