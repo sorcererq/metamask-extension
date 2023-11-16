@@ -3,6 +3,9 @@ import { ThenableWebDriver } from 'selenium-webdriver';
 
 let windowHandles: string[];
 let windowTitlesByHandle: { [key: string]: string };
+let windowHandleNumbersOverTime: number[];
+const NUMBERS_LENGTH = 10;
+
 let driver: ThenableWebDriver;
 let wmInterval: NodeJS.Timeout;
 let isRunning = false;
@@ -11,6 +14,9 @@ let isSearchingForNewTab = false;
 export async function startWindowMonitor(_driver: ThenableWebDriver) {
   driver = _driver;
   windowHandles = await driver.getAllWindowHandles();
+  windowHandleNumbersOverTime = Array(NUMBERS_LENGTH).fill(
+    windowHandles.length,
+  );
   windowTitlesByHandle = {};
 
   isRunning = true;
@@ -31,6 +37,10 @@ async function refreshWindowHandles() {
   // console.log('refreshing window handles');
   windowHandles = await driver.getAllWindowHandles();
 
+  // move the queue forward
+  windowHandleNumbersOverTime.push(windowHandles.length);
+  windowHandleNumbersOverTime.shift();
+
   const activeWindowHandle = await driver.getWindowHandle();
   const activeWindowTitle = await driver.getTitle();
 
@@ -39,12 +49,12 @@ async function refreshWindowHandles() {
   // console.log('windowTitlesByHandle', windowTitlesByHandle);
 
   // Get the title of each windowHandle that doesn't already have a title stored
-  if (isSearchingForNewTab) {
+  if (isSearchingForNewTab && didNewWindowOpen()) {
     console.log('searching for new tab');
     windowHandles.forEach(async (handle) => {
       if (!windowTitlesByHandle[handle]) {
         await switchTo(handle);
-        windowTitlesByHandle[handle] = await driver.getTitle();
+        // windowTitlesByHandle[handle] = await driver.getTitle();
         console.log('found new tab', windowTitlesByHandle[handle]);
       }
     });
@@ -60,10 +70,23 @@ async function refreshWindowHandles() {
   // console.log('filtered', windowTitlesByHandle);
 }
 
+function didNewWindowOpen() {
+  return (
+    // Compare now to 1 second ago
+    windowHandleNumbersOverTime[NUMBERS_LENGTH - 1] >
+      windowHandleNumbersOverTime[NUMBERS_LENGTH - 2] ||
+    // Compare now to 2 seconds ago
+    windowHandleNumbersOverTime[NUMBERS_LENGTH - 1] >
+      windowHandleNumbersOverTime[NUMBERS_LENGTH - 3] ||
+    // Is there a missing entry in windowTitlesByHandle?
+    windowHandles.length > Object.keys(windowTitlesByHandle).length
+  );
+}
+
 async function switchTo(handle: string) {
   try {
     await driver.switchTo().window(handle);
-    isSearchingForNewTab = false;
+    windowTitlesByHandle[handle] = await driver.getTitle();
     console.log('switched to window', windowTitlesByHandle[handle]);
     return true;
   } catch (e) {
