@@ -22,6 +22,15 @@ const ConfirmationMethods = Object.freeze([
   'personal_sign',
 ]);
 
+export const SUPPORTED_CHAIN_IDS: Array<string> = [
+  CHAIN_IDS.MAINNET,
+  CHAIN_IDS.BSC,
+  CHAIN_IDS.POLYGON,
+  CHAIN_IDS.ARBITRUM,
+  CHAIN_IDS.OPTIMISM,
+  CHAIN_IDS.AVALANCHE,
+];
+
 /**
  * Middleware function that handles JSON RPC requests.
  * This function will be called for every JSON RPC request.
@@ -49,7 +58,7 @@ export function createPPOMMiddleware(
       if (
         securityAlertsEnabled &&
         ConfirmationMethods.includes(req.method) &&
-        chainId === CHAIN_IDS.MAINNET
+        SUPPORTED_CHAIN_IDS.includes(chainId)
       ) {
         // eslint-disable-next-line require-atomic-updates
         req.securityAlertResponse = await ppomController.usePPOM(
