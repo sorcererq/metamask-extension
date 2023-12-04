@@ -248,13 +248,8 @@
     "@metamask/address-book-controller": "^3.0.0",
     "@metamask/announcement-controller": "^4.0.0",
     "@metamask/approval-controller": "^3.4.0",
-<<<<<<< HEAD
     "@metamask/assets-controllers": "^19.0.0",
-    "@metamask/base-controller": "^3.2.0",
-=======
-    "@metamask/assets-controllers": "^18.0.0",
-    "@metamask/base-controller": "^4.0.0",
->>>>>>> 3e62200aff (wip)
+    "@metamask/base-controller": "^3.0.0",
     "@metamask/browser-passworder": "^4.1.0",
     "@metamask/contract-metadata": "^2.3.1",
     "@metamask/controller-utils": "^5.0.0",
@@ -651,7 +646,12 @@
       "@storybook/manager-webpack5>core-js": false,
       "@storybook/react-webpack5>@storybook/preset-react-webpack>@pmmmwh/react-refresh-webpack-plugin>core-js-pure": false,
       "ethjs-contract>babel-runtime>core-js": false,
-      "ts-node>@swc/core": false
+      "ts-node>@swc/core": false,
+      "@metamask/desktop>eciesjs>secp256k1": false,
+      "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>@trezor/protobuf>protobufjs": false,
+      "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>@trezor/transport>usb": false,
+      "jsdom>ws>bufferutil": false,
+      "jsdom>ws>utf-8-validate": false
     }
   },
   "packageManager": "yarn@4.0.0-rc.48"
