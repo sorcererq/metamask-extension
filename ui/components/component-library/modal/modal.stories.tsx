@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useArgs } from '@storybook/client-api';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
-import { BLOCK_SIZES, DISPLAY } from '../../../helpers/constants/design-system';
-
-import Box from '../../ui/box';
+import { BlockSize, Display } from '../../../helpers/constants/design-system';
 
 import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
+  ModalFooter,
   Text,
   Button,
   ButtonLink,
   ButtonLinkSize,
   TextFieldSearch,
   IconName,
+  Box,
 } from '..';
 
 import { Modal } from './modal';
@@ -67,7 +67,7 @@ export default {
       <Text paddingTop={4}>ModalContent children after ModalHeader</Text>
     ),
   },
-} as ComponentMeta<typeof Modal>;
+} as Meta<typeof Modal>;
 
 const LoremIpsum = (props) => (
   <Text marginBottom={8} {...props}>
@@ -88,7 +88,7 @@ const LoremIpsum = (props) => (
   </Text>
 );
 
-const Template: ComponentStory<typeof Modal> = (args) => {
+const Template: StoryFn<typeof Modal> = (args) => {
   const [{ isOpen }, updateArgs] = useArgs();
   const [showLoremIpsum, setShowLoremIpsum] = useState(false);
   const [showMoreModalContent, setShowMoreModalContent] = useState(false);
@@ -106,8 +106,8 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   };
 
   return (
-    <Box width={BLOCK_SIZES.FULL} style={{ maxWidth: '700px' }}>
-      <Box display={DISPLAY.FLEX} gap={4}>
+    <Box width={BlockSize.Full} style={{ maxWidth: '700px' }}>
+      <Box display={Display.Flex} gap={4}>
         <Button onClick={handleOnClick}>Open modal</Button>
         <ButtonLink
           endIconName={showLoremIpsum ? IconName.Arrow2Up : IconName.Arrow2Down}
@@ -120,6 +120,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader onClose={handleOnClose}>Modal Header</ModalHeader>
+
           {args.children}
           <Text>Show more content to check scrolling</Text>
           <ButtonLink
@@ -143,6 +144,9 @@ const Template: ComponentStory<typeof Modal> = (args) => {
               <LoremIpsum />
             </>
           )}
+          <ModalFooter
+            buttonPropsArray={[{ children: 'Confirm' }, { children: 'Cancel' }]}
+          />
         </ModalContent>
       </Modal>
       {showLoremIpsum && (
@@ -185,7 +189,7 @@ IsClosedOnEscapeKey.args = {
   ),
 };
 
-export const InitialFocusRef: ComponentStory<typeof Modal> = (args) => {
+export const InitialFocusRef: StoryFn<typeof Modal> = (args) => {
   const inputRef = React.useRef<HTMLDivElement>(null);
   const [{ isOpen }, updateArgs] = useArgs();
   const handleOnClick = () => {
@@ -215,7 +219,7 @@ export const InitialFocusRef: ComponentStory<typeof Modal> = (args) => {
           <TextFieldSearch
             placeholder="Search"
             inputProps={{ ref: inputRef }}
-            width={BLOCK_SIZES.FULL}
+            width={BlockSize.Full}
           />
           {args.children}
         </ModalContent>
@@ -233,7 +237,7 @@ InitialFocusRef.args = {
   ),
 };
 
-export const FinalFocusRef: ComponentStory<typeof Modal> = (args) => {
+export const FinalFocusRef: StoryFn<typeof Modal> = (args) => {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const [{ isOpen }, updateArgs] = useArgs();
   const handleOnClick = () => {
