@@ -122,7 +122,7 @@ const baseStore = {
     providerConfig: {
       chainId: CHAIN_IDS.GOERLI,
     },
-    nativeCurrency: 'ETH',
+    currencyRates: {},
     featureFlags: {
       sendHexData: false,
     },
