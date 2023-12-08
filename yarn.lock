@@ -4399,7 +4399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/message-manager@npm:^7.3.0, @metamask/message-manager@npm:^7.3.5":
+"@metamask/message-manager@npm:^7.3.5":
   version: 7.3.5
   resolution: "@metamask/message-manager@npm:7.3.5"
   dependencies:
@@ -4412,6 +4412,22 @@ __metadata:
     jsonschema: "npm:^1.2.4"
     uuid: "npm:^8.3.2"
   checksum: 6ee9214847d24228dcb2efe25ef1f40c82dd021780ff3e4bcc03d3703eb03ffdbc92f4a85e8276a499215dec994a4aa6bc6e0ab8a1cdfffcf36ba54f604dfd2a
+  languageName: node
+  linkType: hard
+
+"@metamask/message-manager@npm:^7.3.6":
+  version: 7.3.6
+  resolution: "@metamask/message-manager@npm:7.3.6"
+  dependencies:
+    "@metamask/base-controller": "npm:^4.0.0"
+    "@metamask/controller-utils": "npm:^6.0.0"
+    "@metamask/eth-sig-util": "npm:^7.0.0"
+    "@metamask/utils": "npm:^8.2.0"
+    "@types/uuid": "npm:^8.3.0"
+    ethereumjs-util: "npm:^7.0.10"
+    jsonschema: "npm:^1.2.4"
+    uuid: "npm:^8.3.2"
+  checksum: b56bdeece38960dff18f9ec6e0cb37d239883ca1c86f14449f135ffb776a24580ff5b2036a9949ce0dc8891662f2d368a74144f763da9ba792f35bf77596df16
   languageName: node
   linkType: hard
 
@@ -24228,7 +24244,7 @@ __metadata:
     "@metamask/keyring-controller": "npm:^9.0.0"
     "@metamask/logging-controller": "npm:^1.0.1"
     "@metamask/logo": "npm:^3.1.2"
-    "@metamask/message-manager": "npm:^7.3.0"
+    "@metamask/message-manager": "npm:^7.3.6"
     "@metamask/metamask-eth-abis": "npm:^3.0.0"
     "@metamask/name-controller": "npm:^3.0.0"
     "@metamask/network-controller": "npm:^16.0.0"
