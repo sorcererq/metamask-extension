@@ -98,9 +98,6 @@ export const AccountListItem = ({
   const { totalWeiBalance, orderedTokenList } = useAccountTotalFiatBalance(
     identity.address,
   );
-  const balanceToTranslate = process.env.MULTICHAIN
-    ? totalWeiBalance
-    : identity.balance;
 
   // If this is the selected item in the Account menu,
   // scroll the item into view
@@ -209,8 +206,9 @@ export const AccountListItem = ({
             >
               <UserPreferencedCurrencyDisplay
                 ethNumberOfDecimals={MAXIMUM_CURRENCY_DECIMALS}
-                value={balanceToTranslate}
+                value={totalWeiBalance}
                 type={PRIMARY}
+                showFiat
               />
             </Text>
           </Box>
@@ -255,8 +253,9 @@ export const AccountListItem = ({
               >
                 <UserPreferencedCurrencyDisplay
                   ethNumberOfDecimals={MAXIMUM_CURRENCY_DECIMALS}
-                  value={balanceToTranslate}
+                  value={identity.balance}
                   type={SECONDARY}
+                  showNative
                 />
               </Text>
             </Box>
