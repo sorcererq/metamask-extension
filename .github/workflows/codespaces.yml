@@ -1,10 +1,10 @@
-name: Generate Dev Container Cache Image
+name: Codespaces
 
 on:
   push:
     # Update this to build images for other branches
     branches:
-      - 'codespaces'
+      - 'codespaces**'
 
     # Update this list of there are other files you want to watch to do cache updates
     # paths:
@@ -24,4 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: yarn
+          cache: 'yarn'
+
+      - run: yarn --immutable
