@@ -379,6 +379,7 @@ export default function TokenAllowance({
         ///: BEGIN:ONLY_INCLUDE_IF(blockaid)
         <BlockaidBannerAlert
           securityAlertResponse={txData?.securityAlertResponse}
+          txData={txData}
           margin={4}
         />
         ///: END:ONLY_INCLUDE_IF
@@ -386,6 +387,7 @@ export default function TokenAllowance({
       {isSuspiciousResponse(txData?.securityProviderResponse) && (
         <SecurityProviderBannerMessage
           securityProviderResponse={txData.securityProviderResponse}
+          txData={txData}
         />
       )}
       {warning && (

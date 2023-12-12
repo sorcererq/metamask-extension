@@ -17,6 +17,7 @@ import {
   Color,
   Display,
   IconColor,
+  JustifyContent,
   Severity,
   Size,
   TextVariant,
@@ -35,6 +36,7 @@ function SecurityProviderBannerAlert({
   provider,
   severity,
   title,
+  reportUrl,
   ...props
 }) {
   const t = useContext(I18nContext);
@@ -56,7 +58,7 @@ function SecurityProviderBannerAlert({
               <ButtonLink
                 key={`security-provider-button-supporturl-${provider}`}
                 size={Size.inherit}
-                href={ZENDESK_URLS.SUPPORT_URL}
+                href={reportUrl ? reportUrl : ZENDESK_URLS.SUPPORT_URL}
                 externalLink
                 onClick={onClickSupportLink}
               >
@@ -68,31 +70,49 @@ function SecurityProviderBannerAlert({
       )}
 
       {provider && (
-        <Text
-          marginTop={3}
-          display={Display.Flex}
-          alignItems={AlignItems.center}
-          color={Color.textAlternative}
-          variant={TextVariant.bodySm}
-        >
-          <Icon
-            className="disclosure__summary--icon"
-            color={IconColor.primaryDefault}
-            name={IconName.SecurityTick}
-            size={IconSize.Sm}
-            marginInlineEnd={1}
-          />
-          {t('securityProviderPoweredBy', [
+        <>
+          <Text
+            marginTop={3}
+            display={Display.Flex}
+            alignItems={AlignItems.center}
+            color={Color.textAlternative}
+            variant={TextVariant.bodySm}
+          >
+            <Icon
+              className="disclosure__summary--icon"
+              color={IconColor.primaryDefault}
+              name={IconName.SecurityTick}
+              size={IconSize.Sm}
+              marginInlineEnd={1}
+            />
+            {t('securityProviderPoweredBy', [
+              <ButtonLink
+                key={`security-provider-button-link-${provider}`}
+                size={Size.inherit}
+                href={SECURITY_PROVIDER_CONFIG[provider].url}
+                externalLink
+              >
+                {t(SECURITY_PROVIDER_CONFIG[provider].tKeyName)}
+              </ButtonLink>,
+            ])}
+          </Text>
+          <Text
+            display={Display.Flex}
+            alignItems={AlignItems.center}
+            justifyContent={JustifyContent.flexEnd}
+            color={Color.textAlternative}
+            variant={TextVariant.bodyXs}
+          >
             <ButtonLink
-              key={`security-provider-button-link-${provider}`}
+              key={`security-provider-report-link-${provider}`}
               size={Size.inherit}
-              href={SECURITY_PROVIDER_CONFIG[provider].url}
+              href={reportUrl}
               externalLink
             >
-              {t(SECURITY_PROVIDER_CONFIG[provider].tKeyName)}
-            </ButtonLink>,
-          ])}
-        </Text>
+              Report a problem
+            </ButtonLink>
+          </Text>
+        </>
       )}
     </BannerAlert>
   );
