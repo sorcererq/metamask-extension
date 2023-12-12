@@ -28,6 +28,8 @@
   // "image": "cimg/node:18.19-browsers",
   "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
 
+  "name": "MetaMask Codespace for Extension Development",
+
   "portsAttributes": {
     "5901": {
       "label": "local vnc"
