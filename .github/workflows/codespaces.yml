@@ -7,8 +7,8 @@ on:
       - 'codespaces'
 
     # Update this list of there are other files you want to watch to do cache updates
-    paths:
-      - '**/yarn.lock'
+    # paths:
+    #   - '**/yarn.lock'
 
 jobs:
   yarn-cache:
