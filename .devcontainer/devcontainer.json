@@ -7,6 +7,15 @@
         "github.copilot",
         "github.copilot-chat",
         "ms-azuretools.vscode-docker"
+      ],
+      "settings": { "editor.formatOnSave": true },
+      "tasks": [
+        {
+          "label": "Open noVNC new tab",
+          "type": "shell",
+          "command": "xdg-open https://$CODESPACE_NAME-6080.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN",
+          "problemMatcher": []
+        }
       ]
     }
   },
@@ -32,9 +41,12 @@
       "label": "local vnc"
     },
     "6080": {
-      "label": "noVNC web"
+      "label": "noVNC web",
+      "onAutoForward": "openPreview"
     }
   },
+
+  "postCreateCommand": "echo 'INFURA_PROJECT_ID=3d110a0fce9e49b08d2ee584e19a05ba' > .metamaskrc", //this is a working Infura key created just for Codespace testing
 
   "updateContentCommand": "yarn --immutable"
 }
