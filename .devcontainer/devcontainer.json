@@ -34,7 +34,7 @@
     "6080": {
       "label": "noVNC web"
     }
-  },
+  }
 
-  "updateContentCommand": "yarn --immutable"
+  // "updateContentCommand": "yarn --immutable"
 }
