@@ -3492,6 +3492,9 @@
     "message": "データソース: $1",
     "description": "The security provider that is providing data"
   },
+  "seeDetails": {
+    "message": "詳細を表示"
+  },
   "seedPhraseConfirm": {
     "message": "シークレットリカバリーフレーズの確認"
   },

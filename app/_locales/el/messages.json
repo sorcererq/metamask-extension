@@ -3492,6 +3492,9 @@
     "message": "Με την υποστήριξη του $1",
     "description": "The security provider that is providing data"
   },
+  "seeDetails": {
+    "message": "Δείτε λεπτομέρειες"
+  },
   "seedPhraseConfirm": {
     "message": "Επιβεβαίωση της Μυστικής Φράσης Ανάκτησης"
   },

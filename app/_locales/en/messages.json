@@ -1898,6 +1898,7 @@
   "hideSentitiveInfo": {
     "message": "Hide sensitive information"
   },
+
   "hideToken": {
     "message": "Hide token"
   },

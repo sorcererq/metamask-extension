@@ -3496,6 +3496,9 @@
     "message": "Com tecnologia da $1",
     "description": "The security provider that is providing data"
   },
+  "seeDetails": {
+    "message": "Ver detalhes"
+  },
   "seedPhraseConfirm": {
     "message": "Confirmar Frase de Recuperação Secreta"
   },

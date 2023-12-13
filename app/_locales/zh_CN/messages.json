@@ -3492,6 +3492,9 @@
     "message": "由 $1 提供支持",
     "description": "The security provider that is providing data"
   },
+  "seeDetails": {
+    "message": "查看详情"
+  },
   "seedPhraseConfirm": {
     "message": "确认私钥助记词"
   },
