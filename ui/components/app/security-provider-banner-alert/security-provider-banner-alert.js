@@ -17,7 +17,6 @@ import {
   Color,
   Display,
   IconColor,
-  JustifyContent,
   Severity,
   Size,
   TextVariant,
@@ -50,15 +49,17 @@ function SecurityProviderBannerAlert({
     >
       <Text marginTop={2}>{description}</Text>
 
-
-      <Disclosure title={t('seeDetails')} variant={DisclosureVariant.Arrow}>
-        {details ? details : null}
+      <Disclosure
+        title={details ? t('seeDetails') : t('moreCapitalized')}
+        variant={DisclosureVariant.Arrow}
+      >
+        {details || null}
         <Text marginTop={3} display={Display.Flex}>
           {t('somethingDoesntLookRight', [
             <ButtonLink
               key={`security-provider-button-supporturl-${provider}`}
               size={Size.inherit}
-              href={reportUrl ? reportUrl : ZENDESK_URLS.SUPPORT_URL}
+              href={reportUrl || ZENDESK_URLS.SUPPORT_URL}
               externalLink
               onClick={onClickSupportLink}
             >
@@ -122,6 +123,9 @@ SecurityProviderBannerAlert.propTypes = {
 
   /** Function to be called when the support link is clicked */
   onClickSupportLink: PropTypes.func,
+
+  /** URL to open when contact us is linked*/
+  reportUrl: PropTypes.string,
 };
 
 export default SecurityProviderBannerAlert;

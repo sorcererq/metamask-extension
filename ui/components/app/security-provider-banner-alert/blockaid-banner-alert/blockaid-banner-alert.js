@@ -1,6 +1,4 @@
-const zlib = require('zlib');
-
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { captureException } from '@sentry/browser';
 
@@ -19,6 +17,8 @@ import {
   UTM_SOURCE,
 } from '../../../../../shared/constants/security-provider';
 import SecurityProviderBannerAlert from '../security-provider-banner-alert';
+
+const zlib = require('zlib');
 
 /** Reason to description translation key mapping. Grouped by translations. */
 const REASON_TO_DESCRIPTION_TKEY = Object.freeze({
@@ -94,7 +94,9 @@ function BlockaidBannerAlert({ securityAlertResponse, txData, ...props }) {
   };
   const jsonData = JSON.stringify(reportData);
   const encodedData = zlib.gzipSync(jsonData);
-  const reportUrl = `${FALSE_POSITIVE_REPORT_BASE_URL}?data=${encodeURIComponent(encodedData.toString('base64'))}&utm_source=${UTM_SOURCE}`;
+  const reportUrl = `${FALSE_POSITIVE_REPORT_BASE_URL}?data=${encodeURIComponent(
+    encodedData.toString('base64'),
+  )}&utm_source=${UTM_SOURCE}`;
 
   return (
     <SecurityProviderBannerAlert
