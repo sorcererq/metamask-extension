@@ -25,7 +25,7 @@
 
   "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
 
-  "name": "MetaMask Codespace for Extension Development",
+  "name": "MM Extension Codespace",
 
   "portsAttributes": {
     "5901": {
@@ -34,7 +34,7 @@
     "6080": {
       "label": "noVNC web"
     }
-  }
+  },
 
-  // "updateContentCommand": "yarn --immutable"
+  "updateContentCommand": "yarn --immutable"
 }
