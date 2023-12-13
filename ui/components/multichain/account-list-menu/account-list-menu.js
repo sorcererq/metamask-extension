@@ -75,7 +75,6 @@ export const AccountListMenu = ({
   const t = useI18nContext();
   const trackEvent = useContext(MetaMetricsContext);
   const accounts = useSelector(getMetaMaskAccountsOrdered);
-  console.log(accounts);
   const selectedAccount = useSelector(getSelectedAccount);
   const connectedSites = useSelector(getConnectedSubjectsForAllAddresses);
   const currentTabOrigin = useSelector(getOriginOfCurrentTab);
@@ -354,6 +353,11 @@ export const AccountListMenu = ({
                     isPinned={
                       process.env.NETWORK_ACCOUNT_DND
                         ? Boolean(account.pinned)
+                        : null
+                    }
+                    isHidden={
+                      process.env.NETWORK_ACCOUNT_DND
+                        ? Boolean(account.hidden)
                         : null
                     }
                     {...accountListItemProps}
