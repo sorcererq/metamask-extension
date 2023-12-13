@@ -3492,9 +3492,6 @@
     "message": "$1 제공",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "세부 정보 보기"
-  },
   "seedPhraseConfirm": {
     "message": "비밀복구구문 컨펌"
   },

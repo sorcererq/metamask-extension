@@ -3492,9 +3492,6 @@
     "message": "Được cung cấp bởi $1",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "Xem chi tiết"
-  },
   "seedPhraseConfirm": {
     "message": "Xác nhận Cụm từ khôi phục bí mật"
   },

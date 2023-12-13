@@ -3492,9 +3492,6 @@
     "message": "$1 hizmetidir",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "Ayrıntılara bakın"
-  },
   "seedPhraseConfirm": {
     "message": "Gizli Kurtarma İfadesini Onayla"
   },

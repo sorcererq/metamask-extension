@@ -3780,6 +3780,9 @@
   "replace": {
     "message": "replace"
   },
+  "reportProblem": {
+    "message": "Report an issue/problem"
+  },
   "requestFlaggedAsMaliciousFallbackCopyReason": {
     "message": "The security provider has not shared additional details"
   },
@@ -3975,9 +3978,6 @@
   "securityProviderPoweredBy": {
     "message": "Powered by $1",
     "description": "The security provider that is providing data"
-  },
-  "seeDetails": {
-    "message": "See details"
   },
   "seedPhraseConfirm": {
     "message": "Confirm Secret Recovery Phrase"

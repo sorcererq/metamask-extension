@@ -3492,9 +3492,6 @@
     "message": "Powered by $1",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "Details anzeigen"
-  },
   "seedPhraseConfirm": {
     "message": "Geheime Wiederherstellungsphrase bestätigen"
   },

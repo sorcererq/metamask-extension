@@ -3492,9 +3492,6 @@
     "message": "$1 द्वारा पावर्ड",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "ब्यौरा देखें"
-  },
   "seedPhraseConfirm": {
     "message": "सीक्रेट रिकवरी फ्रेज की कन्फर्म करें"
   },

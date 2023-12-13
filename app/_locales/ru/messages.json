@@ -3492,9 +3492,6 @@
     "message": "На основе $1",
     "description": "The security provider that is providing data"
   },
-  "seeDetails": {
-    "message": "См. подробности"
-  },
   "seedPhraseConfirm": {
     "message": "Подтвердите секретную фразу для восстановления"
   },

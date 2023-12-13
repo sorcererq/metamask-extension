@@ -50,10 +50,10 @@ function SecurityProviderBannerAlert({
       <Text marginTop={2}>{description}</Text>
 
       <Disclosure
-        title={details ? t('seeDetails') : t('moreCapitalized')}
+        title={t('moreCapitalized')}
         variant={DisclosureVariant.Arrow}
       >
-        {details || null}
+        {details}
         <Text marginTop={3} display={Display.Flex}>
           {t('somethingDoesntLookRight', [
             <ButtonLink
@@ -63,7 +63,7 @@ function SecurityProviderBannerAlert({
               externalLink
               onClick={onClickSupportLink}
             >
-              {t('contactUs')}
+              {t('reportProblem')}
             </ButtonLink>,
           ])}
         </Text>
