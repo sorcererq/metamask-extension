@@ -40,6 +40,17 @@ function SecurityProviderBannerAlert({
 }) {
   const t = useContext(I18nContext);
 
+  const getDisclosureTitle = () => {
+    if (details) {
+      return t('seeDetails');
+    }
+    /**
+     * TODO: When Disclosure component is updated to support different text based on the state (open/closed),
+     * this should be revisited
+     */
+    return t('seeDetails');
+  };
+
   return (
     <BannerAlert
       data-testid="security-provider-banner-alert"
@@ -50,7 +61,7 @@ function SecurityProviderBannerAlert({
       <Text marginTop={2}>{description}</Text>
 
       <Disclosure
-        title={t('moreCapitalized')}
+        title={getDisclosureTitle()}
         variant={DisclosureVariant.Arrow}
       >
         {details}
