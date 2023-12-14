@@ -1892,6 +1892,9 @@
   "hide": {
     "message": "Hide"
   },
+  "hideAccount": {
+    "message": "Hide account"
+  },
   "hideFullTransactionDetails": {
     "message": "Hide full transaction details"
   },
@@ -4158,6 +4161,9 @@
   },
   "show": {
     "message": "Show"
+  },
+  "showAccount": {
+    "message": "Show account"
   },
   "showFiatConversionInTestnets": {
     "message": "Show conversion on test networks"

@@ -321,6 +321,7 @@
     "openSeaEnabled": true,
     "orderedNetworkList": [],
     "pinnedAccountList": [],
+    "hiddenAccountList": [],
     "advancedGasFee": {
       "0x5": {
         "maxBaseFee": "75",

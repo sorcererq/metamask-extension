@@ -180,7 +180,7 @@ export const AccountListItem = ({
                 <Icon name={IconName.Pin} size={IconSize.Xs} />
               ) : null}
               {process.env.NETWORK_ACCOUNT_DND && isHidden ? (
-                <Icon name={IconName.Eye} size={IconSize.Xs} />
+                <Icon name={IconName.EyeSlash} size={IconSize.Xs} />
               ) : null}
               <Text
                 as="button"
