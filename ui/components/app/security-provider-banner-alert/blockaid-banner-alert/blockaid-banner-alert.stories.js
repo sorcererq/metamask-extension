@@ -5,6 +5,12 @@ import {
 } from '../../../../../shared/constants/security-provider';
 import BlockaidBannerAlert from '.';
 
+const zlib = {
+  gzipSync: (jsonData) => {
+    return jsonData;
+  },
+};
+
 const mockFeatures = [
   'Operator is an EOA',
   'Operator is untrusted according to previous activity',

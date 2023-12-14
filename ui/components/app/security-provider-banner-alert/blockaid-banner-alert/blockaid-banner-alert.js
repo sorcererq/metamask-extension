@@ -95,7 +95,14 @@ function BlockaidBannerAlert({ txData, ...props }) {
     classification: reason,
   };
   const jsonData = JSON.stringify(reportData);
-  const encodedData = zlib?.gzipSync ?? zlib.gzipSync(jsonData);
+  let encodedData;
+
+  if (zlib && zlib.gzipSync) {
+    encodedData = zlib.gzipSync(jsonData);
+  } else {
+    encodedData = jsonData;
+  }
+
   const reportUrl = `${FALSE_POSITIVE_REPORT_BASE_URL}?data=${encodeURIComponent(
     encodedData.toString('base64'),
   )}&utm_source=${UTM_SOURCE}`;
