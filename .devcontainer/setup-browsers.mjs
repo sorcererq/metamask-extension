@@ -6,11 +6,10 @@ function addBrowserToPath(browserName) {
       browserName,
   ).toString();
 
-  const browserCommand = seleniumOutput.split('Browser path: ')[1];
+  let browserCommand = seleniumOutput.split('Browser path: ')[1];
+  browserCommand = browserCommand.slice(0, -1); // cut off the newline
 
-  const browserFolder = browserCommand.slice(0, -browserName.length - 1);
-
-  execSync('echo \'export PATH="/' + browserFolder + ':$PATH"\' >> ~/.bashrc');
+  execSync('sudo ln -sf ' + browserCommand + ' /usr/local/bin/' + browserName);
 }
 
 addBrowserToPath('chrome');

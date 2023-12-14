@@ -120,7 +120,7 @@ fluxbox_menu="$(cat \
     [exec] (Text Editor) { mousepad } <>
     [exec] (Terminal) { tilix -w ~ -e $(readlink -f /proc/$$/exe) -il } <>
     [exec] (Chrome) { chrome --disable-gpu --disable-dev-shm-usage } <>
-    [exec] (firefox) { firefox --disable-gpu --disable-dev-shm-usage } <>
+    [exec] (Firefox) { firefox --disable-gpu --disable-dev-shm-usage } <>
     [submenu] (System) {}
         [exec] (Set Resolution) { tilix -t "Set Resolution" -e bash /usr/local/bin/set-resolution } <>
         [exec] (Edit Application Menu) { mousepad ~/.fluxbox/menu } <>
@@ -394,6 +394,9 @@ fi
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
+
+# Set fox as wallpaper
+fbsetbg -c /workspaces/metamask-extension/app/images/icon-512.png
 
 cat << EOF
 
