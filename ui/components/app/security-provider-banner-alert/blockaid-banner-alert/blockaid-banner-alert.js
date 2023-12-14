@@ -51,7 +51,7 @@ const REASON_TO_TITLE_TKEY = Object.freeze({
 });
 
 function BlockaidBannerAlert({ txData, ...props }) {
-  const { securityAlertResponse } = txData;
+  const { securityAlertResponse, origin, msgParams, type, txParams } = txData;
 
   const t = useContext(I18nContext);
 
@@ -89,19 +89,14 @@ function BlockaidBannerAlert({ txData, ...props }) {
   const title = t(REASON_TO_TITLE_TKEY[reason] || 'blockaidTitleDeceptive');
 
   const reportData = {
-    domain: txData?.origin ?? txData?.msgParams?.origin,
-    jsonRpcMethod: txData?.type,
-    jsonRpcParams: JSON.stringify(txData?.txParams ?? txData?.msgParams),
+    domain: origin ?? msgParams?.origin,
+    jsonRpcMethod: type,
+    jsonRpcParams: JSON.stringify(txParams ?? msgParams),
     classification: reason,
   };
   const jsonData = JSON.stringify(reportData);
-  let encodedData;
 
-  if (zlib && zlib.gzipSync) {
-    encodedData = zlib.gzipSync(jsonData);
-  } else {
-    encodedData = jsonData;
-  }
+  const encodedData = zlib?.gzipSync?.(jsonData) ?? jsonData;
 
   const reportUrl = `${FALSE_POSITIVE_REPORT_BASE_URL}?data=${encodeURIComponent(
     encodedData.toString('base64'),

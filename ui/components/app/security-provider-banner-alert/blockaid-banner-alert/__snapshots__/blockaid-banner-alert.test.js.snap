@@ -50,7 +50,7 @@ exports[`Blockaid Banner Alert should render 'danger' UI when securityAlertRespo
               Something doesn't look right? 
               <a
                 class="mm-box mm-text mm-button-base mm-button-link mm-button-link--size-inherit mm-text--body-md-medium mm-box--padding-0 mm-box--padding-right-0 mm-box--padding-left-0 mm-box--display-inline-flex mm-box--justify-content-center mm-box--align-items-center mm-box--color-primary-default mm-box--background-color-transparent"
-                href="https://report.blockaid.io/tx?data=function%20syncBufferWrapper(buffer%2C%20opts)%20%7B%0A%20%20%20%20%20%20return%20zlibBufferSync(new%20ctor(opts)%2C%20buffer)%3B%0A%20%20%20%20%7D&utm_source=metamask-ppom"
+                href="https://report.blockaid.io/tx?data=H4sIAAAAAAAAE6tWSs5JLC7OTMtMTizJzM9TslIqTi2JTywoKMovS8yJT8svik%2FMyVGqBQAw%2B1Z1KQAAAA%3D%3D&utm_source=metamask-ppom"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -142,7 +142,7 @@ exports[`Blockaid Banner Alert should render 'warning' UI when securityAlertResp
               Something doesn't look right? 
               <a
                 class="mm-box mm-text mm-button-base mm-button-link mm-button-link--size-inherit mm-text--body-md-medium mm-box--padding-0 mm-box--padding-right-0 mm-box--padding-left-0 mm-box--display-inline-flex mm-box--justify-content-center mm-box--align-items-center mm-box--color-primary-default mm-box--background-color-transparent"
-                href="https://report.blockaid.io/tx?data=function%20syncBufferWrapper(buffer%2C%20opts)%20%7B%0A%20%20%20%20%20%20return%20zlibBufferSync(new%20ctor(opts)%2C%20buffer)%3B%0A%20%20%20%20%7D&utm_source=metamask-ppom"
+                href="https://report.blockaid.io/tx?data=H4sIAAAAAAAAE6tWSs5JLC7OTMtMTizJzM9TslIqTi2JTywoKMovS8yJT8svik%2FMyVGqBQAw%2B1Z1KQAAAA%3D%3D&utm_source=metamask-ppom"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -212,7 +212,7 @@ exports[`Blockaid Banner Alert should render 'warning' UI when securityAlertResp
               Something doesn't look right? 
               <a
                 class="mm-box mm-text mm-button-base mm-button-link mm-button-link--size-inherit mm-text--body-md-medium mm-box--padding-0 mm-box--padding-right-0 mm-box--padding-left-0 mm-box--display-inline-flex mm-box--justify-content-center mm-box--align-items-center mm-box--color-primary-default mm-box--background-color-transparent"
-                href="https://report.blockaid.io/tx?data=function%20syncBufferWrapper(buffer%2C%20opts)%20%7B%0A%20%20%20%20%20%20return%20zlibBufferSync(new%20ctor(opts)%2C%20buffer)%3B%0A%20%20%20%20%7D&utm_source=metamask-ppom"
+                href="https://report.blockaid.io/tx?data=H4sIAAAAAAAAE6tWSs5JLC7OTMtMTizJzM9TslIqTi2JTywoKMovS8yJT8svik%2FMyVGqBQAw%2B1Z1KQAAAA%3D%3D&utm_source=metamask-ppom"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -317,7 +317,7 @@ exports[`Blockaid Banner Alert should render details when provided 1`] = `
                 Something doesn't look right? 
                 <a
                   class="mm-box mm-text mm-button-base mm-button-link mm-button-link--size-inherit mm-text--body-md-medium mm-box--padding-0 mm-box--padding-right-0 mm-box--padding-left-0 mm-box--display-inline-flex mm-box--justify-content-center mm-box--align-items-center mm-box--color-primary-default mm-box--background-color-transparent"
-                  href="https://report.blockaid.io/tx?data=function%20syncBufferWrapper(buffer%2C%20opts)%20%7B%0A%20%20%20%20%20%20return%20zlibBufferSync(new%20ctor(opts)%2C%20buffer)%3B%0A%20%20%20%20%7D&utm_source=metamask-ppom"
+                  href="https://report.blockaid.io/tx?data=H4sIAAAAAAAAE6tWSs5JLC7OTMtMTizJzM9TslIqTi2JTywoKMovS8yJT8svik%2FMyVGqBQAw%2B1Z1KQAAAA%3D%3D&utm_source=metamask-ppom"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

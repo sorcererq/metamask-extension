@@ -383,7 +383,6 @@ export default function TokenAllowance({
       {isSuspiciousResponse(txData?.securityProviderResponse) && (
         <SecurityProviderBannerMessage
           securityProviderResponse={txData.securityProviderResponse}
-          txData={txData}
         />
       )}
       {warning && (

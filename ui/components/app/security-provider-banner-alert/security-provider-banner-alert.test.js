@@ -47,7 +47,7 @@ describe('Security Provider Banner Alert', () => {
     expect(container.querySelector('.disclosure')).toBeInTheDocument();
   });
 
-  it('should render disclosure component with title "More" if no details were provided', () => {
+  it('should render disclosure component if no details were provided', () => {
     const { container, getByText } = renderWithProvider(
       <SecurityProviderBannerAlert
         description={mockDescription}

@@ -166,6 +166,36 @@ describe('Blockaid Banner Alert', () => {
     });
   });
 
+  it('should render details section even when features is not provided', () => {
+    const { container } = renderWithLocalization(
+      <BlockaidBannerAlert
+        txData={{
+          securityAlertResponse: mockSecurityAlertResponse,
+          features: undefined,
+        }}
+      />,
+    );
+    expect(container.querySelector('.disclosure')).toBeInTheDocument();
+  });
+
+  it('should render link to report url', () => {
+    const { container, getByText, getByRole } = renderWithLocalization(
+      <BlockaidBannerAlert
+        txData={{
+          securityAlertResponse: mockSecurityAlertResponse,
+          features: undefined,
+        }}
+      />,
+    );
+    expect(container.querySelector('.disclosure')).toBeInTheDocument();
+    expect(getByText("Something doesn't look right?")).toBeInTheDocument();
+    expect(getByText('Report a problem')).toBeInTheDocument();
+    expect(getByRole('link', { name: 'Report a problem' })).toHaveAttribute(
+      'href',
+      'https://report.blockaid.io/tx?data=H4sIAAAAAAAAE6tWSs5JLC7OTMtMTizJzM9TslIqTi2JTywoKMovS8yJT8svik%2FMyVGqBQAw%2B1Z1KQAAAA%3D%3D&utm_source=metamask-ppom',
+    );
+  });
+
   describe('when rendering description', () => {
     Object.entries({
       [BlockaidReason.approvalFarming]:
@@ -196,14 +226,15 @@ describe('Blockaid Banner Alert', () => {
         'If you approve this request, a third party known for scams will take all your assets.',
     }).forEach(([reason, expectedDescription]) => {
       it(`should render for '${reason}' correctly`, () => {
-        const txData = {
-          securityAlertResponse: {
-            ...mockSecurityAlertResponse,
-            reason,
-          },
-        };
         const { getByText } = renderWithLocalization(
-          <BlockaidBannerAlert txData={txData} />,
+          <BlockaidBannerAlert
+            txData={{
+              securityAlertResponse: {
+                ...mockSecurityAlertResponse,
+                reason,
+              },
+            }}
+          />,
         );
 
         expect(getByText(expectedDescription)).toBeInTheDocument();
