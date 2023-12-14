@@ -50,7 +50,9 @@ const REASON_TO_TITLE_TKEY = Object.freeze({
   [BlockaidReason.rawSignatureFarming]: 'blockaidTitleSuspicious',
 });
 
-function BlockaidBannerAlert({ securityAlertResponse, txData, ...props }) {
+function BlockaidBannerAlert({ txData, ...props }) {
+  const { securityAlertResponse } = txData;
+
   const t = useContext(I18nContext);
 
   if (!securityAlertResponse) {
@@ -93,7 +95,7 @@ function BlockaidBannerAlert({ securityAlertResponse, txData, ...props }) {
     classification: reason,
   };
   const jsonData = JSON.stringify(reportData);
-  const encodedData = zlib.gzipSync(jsonData);
+  const encodedData = zlib?.gzipSync ?? zlib.gzipSync(jsonData);
   const reportUrl = `${FALSE_POSITIVE_REPORT_BASE_URL}?data=${encodeURIComponent(
     encodedData.toString('base64'),
   )}&utm_source=${UTM_SOURCE}`;
@@ -112,7 +114,6 @@ function BlockaidBannerAlert({ securityAlertResponse, txData, ...props }) {
 }
 
 BlockaidBannerAlert.propTypes = {
-  securityAlertResponse: PropTypes.object,
   txData: PropTypes.object,
 };
 

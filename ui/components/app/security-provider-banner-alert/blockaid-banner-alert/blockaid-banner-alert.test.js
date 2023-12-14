@@ -21,7 +21,11 @@ const mockSecurityAlertResponse = {
 describe('Blockaid Banner Alert', () => {
   it('should not render when securityAlertResponse is not present', () => {
     const { container } = renderWithLocalization(
-      <BlockaidBannerAlert securityAlertResponse={undefined} />,
+      <BlockaidBannerAlert
+        txData={{
+          securityAlertResponse: undefined,
+        }}
+      />,
     );
 
     expect(container.querySelector('.mm-banner-alert')).toBeNull();
@@ -30,9 +34,11 @@ describe('Blockaid Banner Alert', () => {
   it(`should not render when securityAlertResponse.result_type is '${BlockaidResultType.Benign}'`, () => {
     const { container } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          result_type: BlockaidResultType.Benign,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            result_type: BlockaidResultType.Benign,
+          },
         }}
       />,
     );
@@ -43,9 +49,11 @@ describe('Blockaid Banner Alert', () => {
   it(`should render '${Severity.Warning}' UI when securityAlertResponse.result_type is '${BlockaidResultType.Failed}`, () => {
     const { container } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          result_type: BlockaidResultType.Failed,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            result_type: BlockaidResultType.Failed,
+          },
         }}
       />,
     );
@@ -59,7 +67,11 @@ describe('Blockaid Banner Alert', () => {
 
   it(`should render '${Severity.Warning}' UI when securityAlertResponse.result_type is '${BlockaidResultType.Warning}`, () => {
     const { container } = renderWithLocalization(
-      <BlockaidBannerAlert securityAlertResponse={mockSecurityAlertResponse} />,
+      <BlockaidBannerAlert
+        txData={{
+          securityAlertResponse: mockSecurityAlertResponse,
+        }}
+      />,
     );
     const warningBannerAlert = container.querySelector(
       '.mm-banner-alert--severity-warning',
@@ -72,9 +84,11 @@ describe('Blockaid Banner Alert', () => {
   it(`should render '${Severity.Danger}' UI when securityAlertResponse.result_type is '${BlockaidResultType.Malicious}`, () => {
     const { container } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          result_type: BlockaidResultType.Malicious,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            result_type: BlockaidResultType.Malicious,
+          },
         }}
       />,
     );
@@ -88,7 +102,11 @@ describe('Blockaid Banner Alert', () => {
 
   it('should render title, "This is a deceptive request"', () => {
     const { getByText } = renderWithLocalization(
-      <BlockaidBannerAlert securityAlertResponse={mockSecurityAlertResponse} />,
+      <BlockaidBannerAlert
+        txData={{
+          securityAlertResponse: mockSecurityAlertResponse,
+        }}
+      />,
     );
 
     expect(getByText('This is a deceptive request')).toBeInTheDocument();
@@ -97,9 +115,11 @@ describe('Blockaid Banner Alert', () => {
   it(`should render title, "This is a suspicious request", when the reason is "${BlockaidReason.failed}"`, () => {
     const { getByText } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          reason: BlockaidReason.failed,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            reason: BlockaidReason.failed,
+          },
         }}
       />,
     );
@@ -110,9 +130,11 @@ describe('Blockaid Banner Alert', () => {
   it(`should render title, "This is a suspicious request", when the reason is "${BlockaidReason.rawSignatureFarming}"`, () => {
     const { getByText } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          reason: BlockaidReason.rawSignatureFarming,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            reason: BlockaidReason.rawSignatureFarming,
+          },
         }}
       />,
     );
@@ -128,9 +150,11 @@ describe('Blockaid Banner Alert', () => {
 
     const { container, getByText } = renderWithLocalization(
       <BlockaidBannerAlert
-        securityAlertResponse={{
-          ...mockSecurityAlertResponse,
-          features: mockFeatures,
+        txData={{
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            features: mockFeatures,
+          },
         }}
       />,
     );
@@ -172,10 +196,14 @@ describe('Blockaid Banner Alert', () => {
         'If you approve this request, a third party known for scams will take all your assets.',
     }).forEach(([reason, expectedDescription]) => {
       it(`should render for '${reason}' correctly`, () => {
+        const txData = {
+          securityAlertResponse: {
+            ...mockSecurityAlertResponse,
+            reason,
+          },
+        };
         const { getByText } = renderWithLocalization(
-          <BlockaidBannerAlert
-            securityAlertResponse={{ ...mockSecurityAlertResponse, reason }}
-          />,
+          <BlockaidBannerAlert txData={txData} />,
         );
 
         expect(getByText(expectedDescription)).toBeInTheDocument();

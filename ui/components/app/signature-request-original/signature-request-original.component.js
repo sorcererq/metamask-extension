@@ -154,11 +154,7 @@ export default class SignatureRequestOriginal extends Component {
       <div className="request-signature__body">
         {
           ///: BEGIN:ONLY_INCLUDE_IF(blockaid)
-          <BlockaidBannerAlert
-            securityAlertResponse={txData?.securityAlertResponse}
-            txData={txData}
-            margin={4}
-          />
+          <BlockaidBannerAlert txData={txData} margin={4} />
           ///: END:ONLY_INCLUDE_IF
         }
         {isSuspiciousResponse(txData?.securityProviderResponse) && (

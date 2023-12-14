@@ -3779,7 +3779,7 @@
     "message": "replace"
   },
   "reportProblem": {
-    "message": "Report an issue/problem"
+    "message": "Report a problem"
   },
   "requestFlaggedAsMaliciousFallbackCopyReason": {
     "message": "The security provider has not shared additional details"
