@@ -3697,15 +3697,6 @@
         "assert.ok": true
       }
     },
-    "gulp-rename": {
-      "builtin": {
-        "path.basename": true,
-        "path.dirname": true,
-        "path.extname": true,
-        "path.join": true,
-        "stream.Transform": true
-      }
-    },
     "gulp-rtlcss": {
       "globals": {
         "Buffer.from": true
