@@ -1224,6 +1224,9 @@
   "deprecatedAuroraNetworkMsg": {
     "message": "MetaMask will be deprecating support for Aurora network. Please add it as a custom network if you want to continue to use it"
   },
+  "deprecatedGoerliNetworkMsg": {
+    "message": "Due to the protocol changes of Ethereum: Goerli test network may not work as reliably and will be deprecated soon."
+  },
   "description": {
     "message": "Description"
   },
@@ -1824,6 +1827,12 @@
   "general": {
     "message": "General"
   },
+  "generalCameraError": {
+    "message": "We couldn't access your camera. Please give it another try."
+  },
+  "generalCameraErrorTitle": {
+    "message": "Something went wrong...."
+  },
   "globalTitle": {
     "message": "Global menu"
   },
@@ -2407,9 +2416,6 @@
   },
   "metaMaskConnectStatusParagraphTwo": {
     "message": "The connection status button shows if the website you’re visiting is connected to your currently selected account."
-  },
-  "metamaskFees": {
-    "message": "MetaMask fees"
   },
   "metamaskInstitutionalVersion": {
     "message": "MetaMask Institutional Version"
@@ -5478,12 +5484,6 @@
   },
   "unknown": {
     "message": "Unknown"
-  },
-  "unknownCameraError": {
-    "message": "There was an error while trying to access your camera. Please try again..."
-  },
-  "unknownCameraErrorTitle": {
-    "message": "Ooops! Something went wrong...."
   },
   "unknownCollection": {
     "message": "Unnamed collection"
