@@ -2,11 +2,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "rvest.vs-code-prettier-eslint",
         "github.codespaces",
         "github.copilot",
         "github.copilot-chat",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "rvest.vs-code-prettier-eslint"
       ],
       "settings": { "editor.formatOnSave": true },
       "tasks": [
@@ -36,8 +36,10 @@
     }
   },
 
+  "postAttachCommand": "/usr/local/share/desktop-init.sh",
+
   //this is a working Infura key created just for Codespace testing
-  "postCreateCommand": "echo 'INFURA_PROJECT_ID=3d110a0fce9e49b08d2ee584e19a05ba' > .metamaskrc && /usr/local/share/desktop-init.sh",
+  "postCreateCommand": "echo 'INFURA_PROJECT_ID=3d110a0fce9e49b08d2ee584e19a05ba' > .metamaskrc",
 
   "runArgs": ["--shm-size=1g"],
 

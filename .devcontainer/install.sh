@@ -110,6 +110,7 @@ session.screen0.toolbar.widthPercent: 100
 session.screen0.strftimeFormat: %a %l:%M %p
 session.screen0.toolbar.tools: RootMenu, clock, iconbar, systemtray
 session.screen0.workspaceNames: One,
+session.screen0.rootCommand: fbsetbg -c /workspaces/metamask-extension/app/images/icon-512.png
 EOF
 )"
 
@@ -292,7 +293,7 @@ group_name="$(id -gn ${USERNAME})"
 LOG=/tmp/container-init.log
 
 export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-"autolaunch:"}"
-export DISPLAY="${DISPLAY:-:1}"
+export DISPLAY=:1
 export VNC_RESOLUTION="${VNC_RESOLUTION:-1440x768x16}"
 export LANG="${LANG:-"en_US.UTF-8"}"
 export LANGUAGE="${LANGUAGE:-"en_US.UTF-8"}"
@@ -376,6 +377,9 @@ else
     log "noVNC is already running or not installed."
 fi
 
+# Set fox as wallpaper
+fbsetbg -c /workspaces/metamask-extension/app/images/icon-512.png
+
 # Run whatever was passed in
 log "Executing \"\$@\"."
 exec "\$@"
@@ -394,9 +398,6 @@ fi
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
-
-# Set fox as wallpaper
-fbsetbg -c /workspaces/metamask-extension/app/images/icon-512.png
 
 cat << EOF
 
