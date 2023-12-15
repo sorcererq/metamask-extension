@@ -34,6 +34,7 @@ import {
   getConnectedSubjectsForAllAddresses,
   getOriginOfCurrentTab,
   getUpdatedAndSortedAccounts,
+  getHiddenAccountsList,
   ///: BEGIN:ONLY_INCLUDE_IF(keyring-snaps)
   getIsAddSnapAccountEnabled,
   ///: END:ONLY_INCLUDE_IF
@@ -55,6 +56,7 @@ import {
 } from '../../../helpers/constants/routes';
 import { getEnvironmentType } from '../../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../../shared/constants/app';
+import { HiddenAccountList } from './hidden-account-list';
 
 const ACTION_MODES = {
   // Displays the search box and account list
@@ -80,6 +82,7 @@ export const AccountListMenu = ({
   const currentTabOrigin = useSelector(getOriginOfCurrentTab);
   const history = useHistory();
   const dispatch = useDispatch();
+  const hiddenAddresses = useSelector(getHiddenAccountsList);
   ///: BEGIN:ONLY_INCLUDE_IF(keyring-snaps)
   const addSnapAccountEnabled = useSelector(getIsAddSnapAccountEnabled);
   ///: END:ONLY_INCLUDE_IF
@@ -87,7 +90,10 @@ export const AccountListMenu = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [actionMode, setActionMode] = useState(ACTION_MODES.LIST);
 
-  let searchResults = accounts;
+  let searchResults = process.env.NETWORK_ACCOUNT_DND
+    ? // eslint-disable-next-line react-hooks/rules-of-hooks
+      useSelector(getUpdatedAndSortedAccounts)
+    : accounts;
   if (searchQuery) {
     const fuse = new Fuse(accounts, {
       threshold: 0.2,
@@ -116,11 +122,6 @@ export const AccountListMenu = ({
       onBack = () => setActionMode(ACTION_MODES.MENU);
     }
   }
-
-  const sortedSearchResults = process.env.NETWORK_ACCOUNT_DND
-    ? // eslint-disable-next-line react-hooks/rules-of-hooks
-      useSelector(getUpdatedAndSortedAccounts)
-    : searchResults;
 
   return (
     <Modal isOpen onClose={onClose}>
@@ -315,7 +316,7 @@ export const AccountListMenu = ({
             ) : null}
             {/* Account list block */}
             <Box className="multichain-account-menu-popover__list">
-              {sortedSearchResults.length === 0 && searchQuery !== '' ? (
+              {searchResults.length === 0 && searchQuery !== '' ? (
                 <Text
                   paddingLeft={4}
                   paddingRight={4}
@@ -325,10 +326,15 @@ export const AccountListMenu = ({
                   {t('noAccountsFound')}
                 </Text>
               ) : null}
-              {sortedSearchResults.map((account) => {
+              {searchResults.map((account) => {
                 const connectedSite = connectedSites[account.address]?.find(
                   ({ origin }) => origin === currentTabOrigin,
                 );
+
+                const hideAccountListItem =
+                  searchQuery.length === 0 && account.hidden;
+
+                /* NOTE: Hidden account will be displayed only in the search list */
 
                 return (
                   <Box
@@ -337,6 +343,7 @@ export const AccountListMenu = ({
                         ? 'multichain-account-menu-popover__list--menu-item-hidden'
                         : 'multichain-account-menu-popover__list--menu-item'
                     }
+                    display={hideAccountListItem ? Display.None : Display.Block}
                     key={account.address}
                   >
                     <AccountListItem
@@ -374,6 +381,11 @@ export const AccountListMenu = ({
                 );
               })}
             </Box>
+            {/* Hidden Accounts, this component shows hidden accounts in account list Item*/}
+            {hiddenAddresses.length > 0 ? (
+              <HiddenAccountList onClose={onClose} />
+            ) : null}
+
             {/* Add / Import / Hardware button */}
             {showAccountCreation ? (
               <Box
