@@ -44,28 +44,33 @@ function transformState(state: Record<string, unknown>) {
     };
   }
 
-  const {cachedBalances} = state.CachedBalancesController;
+  const { cachedBalances } = state.CachedBalancesController;
 
-  Object.entries(cachedBalances).forEach(([chainId, chainCachedBalances]) => {
-    if (
-      !hasProperty(
-        state.AccountTracker.accountsByChainId,
-        chainId,
-      ) ||
-      !isObject(
-        state.AccountTracker.accountsByChainId[chainId],
-      )
-    ) {
-      state.AccountTracker.accountsByChainId[chainId] = {};
+  // transform cachedBalances to accountsByChainId here making sure not to
+  // overwrite existing accountsByChainId values if present
+  for (const chainId in cachedBalances) {
+    if (hasProperty(cachedBalances, chainId)) {
+      if (
+        hasProperty(accountTrackerControllerState, 'accountsByChainId') &&
+        !accountTrackerControllerState.accountsByChainId[chainId]
+      ) {
+        accountTrackerControllerState.accountsByChainId[chainId] = {};
+      }
+
+      for (const accountAddress in cachedBalances[chainId]) {
+        if (cachedBalances[chainId].hasOwnProperty(accountAddress)) {
+          const balance = cachedBalances[chainId][accountAddress];
+          if (balance !== '0x0') {
+            accountTrackerControllerState.accountsByChainId[chainId][
+              accountAddress
+            ] = {
+              address: accountAddress,
+              balance: balance,
+            };
+          }
+        }
+      }
     }
-
-    Object.entries(chainCachedBalances).forEach(([address, balance]) => {
-      state.AccountTrackerController.accountsByChainId[chainId][
-        address
-      ] = {
-        balance,
-      };
-    });
   }
-
+  // delete cachedBalancesController
 }
