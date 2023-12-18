@@ -94,9 +94,6 @@ export const SENTRY_BACKGROUND_STATE = {
     trezorModel: true,
     usedNetworks: true,
   },
-  CachedBalancesController: {
-    cachedBalances: false,
-  },
   CronjobController: {
     jobs: false,
   },

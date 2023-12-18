@@ -212,11 +212,6 @@ function defaultFixture() {
         },
         snapsInstallPrivacyWarningShown: true,
       },
-      CachedBalancesController: {
-        cachedBalances: {
-          [CHAIN_IDS.LOCALHOST]: {},
-        },
-      },
       CurrencyController: {
         currentCurrency: 'usd',
         currencyRates: {
@@ -498,11 +493,6 @@ class FixtureBuilder {
 
   withAppStateController(data) {
     merge(this.fixture.data.AppStateController, data);
-    return this;
-  }
-
-  withCachedBalancesController(data) {
-    merge(this.fixture.data.CachedBalancesController, data);
     return this;
   }
 
