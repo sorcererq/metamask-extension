@@ -24,13 +24,17 @@ const Footer = () => {
     >
       <Button
         block
-        data-testid="cancel-button"
+        data-testid="confirm-footer-cancel-button"
         variant={ButtonVariant.Secondary}
         size={ButtonSize.Lg}
       >
         {t('cancel')}
       </Button>
-      <Button size={ButtonSize.Lg} block data-testid="confirm-button">
+      <Button
+        size={ButtonSize.Lg}
+        block
+        data-testid="confirm-footer-confirm-button"
+      >
         {t('confirm')}
       </Button>
     </Box>

@@ -22,19 +22,16 @@ const render = () => {
 };
 
 describe('ConfirmFooter', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should match snapshot', async () => {
     const { container } = render();
     expect(container).toMatchSnapshot();
   });
 
-  it('renders the correct text', () => {
+  it('renders the "Cancel" and "Confirm" Buttons', () => {
     const { getAllByRole, getByText } = render();
-    expect(getAllByRole('button')[0]).toBeInTheDocument();
-    expect(getAllByRole('button')[1]).toBeInTheDocument();
+    const buttons = getAllByRole('button');
+    expect(buttons[0]).toBeInTheDocument();
+    expect(buttons[1]).toBeInTheDocument();
     expect(getByText('Confirm')).toBeInTheDocument();
     expect(getByText('Cancel')).toBeInTheDocument();
   });
